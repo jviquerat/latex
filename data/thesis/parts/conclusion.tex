@@ -1,0 +1,55 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Outlook}
+
+In this chapter, we go over the content of the present manuscript, and point out the future possible works that are or could be carried to progress toward more complex physics and performant computations.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Summary}
+
+The goal of this thesis was to elaborate a 3D discontinuous Galerkin time-domain code able to handle complex nano-optics configurations. In the following paragraphs, we review the content of this thesis, and point out our efforts and associated contributions toward this objective.
+
+First, a customized generalized dispersive model was developed. This model covers a wide range of dispersive materials, and proved to be roughly twice more accurate to fit experimental data than the widespread Drude and Drude-Lorentz models, for standard metals such as gold and silver in the THz regime. A significant improvement was obtained for nickel (a transition metal) when comparing the performance of the Drude model with a single generalized pole. Finally, a short digression was made on non-local dispersive models, with preliminary results in 2D.
+
+Then, the discontinuous Galerkin time-domain method was thoroughly developed and validated for non-dispersive and dispersive materials, and two time-stepping techniques taken from the literature were proposed. Several numerical experiments related to fluxes were conducted to complete this overview. To conclude, several theoretical proofs were given, some being the result of associated works conducted during this thesis.
+
+The next chapter contains all the numerical developments necessary to handle the computation of realistic cases, such as perfectly-matched layers, total field/scattered field formulation, complex sources, or physical post-treatments. Although additional numerical experiments were conducted about the performances of absorbing boundary conditions and perfectly matched layers, these techniques were all adapted from the literature.
+
+Two methodological developments were then investigated in order to improve the efficiency and the accuracy of the DGTD algorithm. First, the possibility to handle curvilinear elements was considered. This possibility is not new to the DG community, and after a presentation of the mathematical and numerical framework, our approach was resolutely oriented toward the improvements this technique could bring to nano-optics computations. Through increasingly-complex configurations, the use of curvilinear elements proved to be a serious asset in terms of performance and accuracy. In the following chapter, the possibility to exploit variable polynomial orders through the computational domain was explored. After the necessary developments and a standard validation of the implementation, an order repartition algorithm was proposed that provided interesting speedups on meshes with heterogeneous mesh sizes (with a ratio up to 1000), while the accuracy of the results is barely altered (less than 1\% of relative error). However, this implementation relies on a good preliminary knowledge of the physics involved in the considered configuration. A coupling with an \textit{a posteriori} error estimate could lift this limitation by adapting the polynomial order on-the-fly, which could also alleviate the computational cost. The coupling of the order repartition algorithm with curvilinear elements can also constitute an interesting exploration path.
+
+In the following chapter, the sequential and parallel performances of our code were assessed. A cell-renumbering algorithm was shown to provide interesting speedups, especially for low approximation orders. After a few numerical experiments with the Metis mesh partitioning tool, the speedup and efficiency of our parallel MPI implementation was assessed on a standard test-case. Results showed that this implementation provided an acceptable scaling up to a few hundred of cores, as long as the number of cells per core remained sufficiently high (around 10,000). Computation results from other chapters also proved that there was a serious need for a better load balance between cores when complex features (PMLs, curved elements, on-the-fly Fourier transforms, ...) were used.
+
+The final chapter aims at demonstrating the capabilities of our current DGTD implementation on realistic cases. The first case consists in the computation of the EELS spectrum of a metallic nanosphere, and was adapted from existing literature. It constitutes a preliminary step toward more advanced works dealing with the proper treatment of electron-based electromagnetic sources. The second configuration involves the gap-plasmon resonances observed under chemically-produced nanocubes on metallic plates. First, the influence of the rounding at the cube edges was demonstrated. Then, different behaviors were identified, depending on the cube side length and the thickness of the dielectric spacer. These results will constitute the base of a wider study in collaboration with A. Moreau \cite{Moreau2}. The last case deals with 1D and 2D dielectric reflectarrays, which goal is to reflect incident light with a tunable deflection angle. First, the impact of realistic lithography flaws on the performance of a 1D array was assessed. Then, the computation of a larger 2D reflectarray is considered. These results are the first step toward a wider study on this topic in collaboration with M. Klemm \cite{Zou2}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Future works}
+
+The topics presented in this manuscript give rise to a number of possible further developments, both from the numerical and the physical point of view. We close this manuscript with a short discussion of these topics.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Physics and material models}
+
+The numerical treatment of the non-local model, briefly presented in section \ref{section:nonlocal}, remains to be thoroughly studied in the DG framework. Because of the very small physical scale involved, 3D computations with non-local models promise to be computationally expensive, and an efficient parallel implementation would constitute a good asset to compute the response of large-scale systems.
+
+The discretization of non-linear materials in the DG framework also remain to be explored in details. Literature on this topic is very shallow, with only a handful of references limited to 1D formulations for Kerr effects \cite{Blank1} \cite{Fezoui2}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Numerical improvements}
+
+As was stated in the introduction, the DG method allows a large panel of methodological improvements, each presenting advantages and drawbacks. In most cases, the goal of these enrichments is either to (i) alleviate the number of degrees of freedom (hybrid \cite{Leger1} and non-conforming meshes \cite{Fahs2}), to (ii) handle the ill time discretization induced by very small elements (local time-stepping \cite{Diaz1}, implicit/explicit formulations \cite{Moya1}, space-time DG method \cite{Petersen1}), or to (iii) obtain a combination of both ($hp$-adaptivity \cite{Schnepp1}).
+
+New numerical methods derived from the classical DG algorithm are also appearing. In the Hybridizable Discontinuous Galerkin (HDG) method, a Lagrange multiplier representing the trace of the numerical solution on the element faces is introduced. A global problem on the mesh skeletton (\ie the faces of the mesh) is obtained and solved, before the volumic solution can be recovered with local, independent computations. Originally designed for the time-harmonic Maxwell's equations \cite{Nguyen1}, implicit time-domain HDG formulation for Maxwell's equations have been developped \cite{Lanteri4}. A more general technique, the Multiscale Hybrid Mixed (MHM) method \cite{Harder1}, includes the DG algorithm as an inner solver to handle large, multiscale problems. In this method, the final solution is obtained as the sum of (i) the global solution of the problem of a coarse mesh and (ii) local, independent solutions computed on finer meshes in each cell.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{High-performance computing}
+
+To compute larger and larger nano-optics systems, one cannot solely rely on Moore's law, and needs to call upon adequate parallel implementations. As can be guessed from the results of the present manuscript, a specific effort must be made to obtain decent scalings out of very large clusters (\ie from several thousands to tens of thousands). OMP- or MPI-only parallel implementations on standard CPU clusters are not likely to achieve such performances. Hybrid parallelism (MPI/OMP \cite{Lanteri3}) or specific implementations for advanced HPC architectures (cluster/booster division \cite{Leger2}) represent potential candidates to efficient massively parallel DG algorithms.

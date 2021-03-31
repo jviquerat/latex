@@ -1,0 +1,199 @@
+%%%%%%%%%%%%%%%%%%%%%%%% 
+% Main packages
+%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[british]{babel}							% manages multilingual typesetting
+\usetheme{metropolis}								% use custom style
+\setbeamersize{text margin left=0.5cm}					% left margin 
+\setbeamersize{text margin right=0.5cm}					% right margin
+\setbeamercovered{transparent}						% style for cover/uncover
+\usepackage{etex} 									% extends memory
+
+%%%%%%%%%%%%%%%%%%%%%%%% 
+% Fonts
+%%%%%%%%%%%%%%%%%%%%%%%% 
+\usepackage[defaultfam,extralight,tabular,lining]{montserrat}
+\usepackage[T1]{fontenc}
+\renewcommand*\oldstylenums[1]{{\fontfamily{Montserrat-TOsF}\selectfont #1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%% 
+% Math packages
+%%%%%%%%%%%%%%%%%%%%%%%% 
+\usepackage{amsmath}								% for main mathematical features
+\usepackage{amsxtra}								% a few rarely used math-related commands
+\usepackage{amssymb}								% extended symbol collection
+\usepackage{amsthm}								% for theorem-like structures
+\usepackage{ifthen}									% conditional commands
+\usepackage{mathtools}								% extension of amsmath
+\usepackage{stmaryrd} 								% symbols for computer science
+\usepackage{siunitx} 								% formatting numbers with 10^
+\usepackage{textcomp} 								% for many text symbols
+\usepackage{bm} 									% boldmath symbols
+\usepackage{esint} 									% for \oiint symbol and integrals style
+\usepackage{fp}									% complex calculations
+\usepackage[beamer,customcolors]{hf-tikz}				% highlight formulas
+\usefonttheme[onlymath]{serif}							% use serif math font in beamer
+
+%%%%%%%%%%%%%%%%%%%%%%%% 
+% Arrays packages
+%%%%%%%%%%%%%%%%%%%%%%%% 
+\usepackage{booktabs}								% enhances tables quality
+\usepackage{multirow}								% create tab­u­lar cells span­ning mul­ti­ple rows
+\usepackage{multicol}								% create tab­u­lar cells span­ning mul­ti­ple columns
+\usepackage{bigdelim}								% multi-row delimiters in arrays
+\usepackage{tabularx}								% extends tabular with adjustable-width columns 
+
+%%%%%%%%%%%%%%%%%%%%%%%% 
+% Layout packages
+%%%%%%%%%%%%%%%%%%%%%%%% 
+\usepackage{hyperref}								% production of hypertext links
+\usepackage{enumitem}								% provides control over itemize and enumerate packages
+\usepackage{ulem} 									% for underlining things
+\usepackage{algorithm}								% typesetting for algorithms
+\usepackage{algpseudocode}							% provides control over algorithm-defined structures
+\usepackage{setspace}								% to set space between lines
+\usepackage{lipsum}									% write random text
+\usepackage{listings}								% to typeset source code
+\usepackage{bibentry}								% allows to put a full bib entry in the text of a document
+\usepackage{pdflscape}								% to use landscape mode
+\usepackage{fix-cm}									% drops latex size restrictions over Modern fonts
+\usepackage{appendixnumberbeamer}					% manage frame numbering in beamer appendices
+\usepackage{anyfontsize}								% allows to use any font size
+
+%%%%%%%%%%%%%%%%%%%%%%%% 
+% Figures packages
+%%%%%%%%%%%%%%%%%%%%%%%% 
+\usepackage{graphicx}								% graphics support
+\usepackage[font={footnotesize},labelfont={bf}]{caption} 		% style of figure captions
+\usepackage{fp}									% high-precision arithmetic operations
+\usepackage[final]{pdfpages} 							% inclusion of PDF pages (must be put BEFORE pgfplots, tikz and externalize stuff)
+\usepackage{subcaption}								% for subfigures
+\usepackage{pgfplots}								% pgfplots support
+\usepackage{pgfplotstable}							% rounding and formatting of numerical tables for pgfplots
+\usepackage{tikz}									% tikz support
+\usepackage{tikz-3dplot}								% 3D plots
+\usepgfplotslibrary{fillbetween}							% filling between curves
+\usepgfplotslibrary{polar}								% polar plots
+\usepgfplotslibrary{patchplots}							% plot triangular or quadrangular patches on graphs
+\usetikzlibrary{calc}									% complex coordinates calculations
+\usetikzlibrary{fadings}								% to apply fadings
+\usetikzlibrary{shapes}								% to define various complex shapes
+\usetikzlibrary{shapes.misc}							% to define various complex shapes
+\usetikzlibrary{shapes.geometric}						% to define geometric shapes such as polygons or ellipses 
+\usetikzlibrary{3d}									% drawing 3d shapes
+\usetikzlibrary{arrows}								% arrow tips
+\usetikzlibrary{arrows.meta}							% arrow tips
+\usetikzlibrary{quotes}								% nice quotes
+\usetikzlibrary{decorations}							% basic decoration stuff
+\usetikzlibrary{decorations.pathmorphing}					% deformation of to-be-decorated paths
+\usetikzlibrary{decorations.text}							% decoration of paths with text
+\usetikzlibrary{decorations.markings}						% putting marks on paths
+\usetikzlibrary{intersections}							% automated calculations of paths intersections
+\usetikzlibrary{patterns}								% defines patterns for filling areas
+\usetikzlibrary{spy}									% to create local close-ups on plots
+\usetikzlibrary{chains}								% to create chains (timeline for example)
+\usetikzlibrary{positioning}								% additional options for placing nodes
+\usetikzlibrary{scopes}								% complex scopes in tikz
+\pgfplotsset{compat=1.15}								% require a specific version of pgfplots
+
+\tikzset{every mark/.append style={scale=0.6}}				% size of tikz marks
+\pgfplotsset{legend style={font=\footnotesize}}				% size of legend text
+\pgfplotsset{every tick label/.append style={font=\footnotesize}}	% size of ticks in plots
+
+%%%%%%%%%%%%%%%%%%%%%%%% 
+% Define custom 3D rotations for tikz-3dplot
+% You must use \begin{tikzpicture}[tdplot_main_coords] to make them effective
+% The command is \tdplotsetmaincoords{phi}{theta} %first angle from z+, second angle from x+
+%%%%%%%%%%%%%%%%%%%%%%%% 
+\newcommand{\applyANiceRotationForCells}{\tdplotsetmaincoords{60}{115}}
+
+%%%%%%%%%%%%%%%%%%%%%%%% 
+% Color packages and definitions
+%%%%%%%%%%%%%%%%%%%%%%%% 
+\usepackage{xcolor}									% driver-independant colors extensions
+\usepackage{color} 									% foreground and background color control 
+
+\definecolor{blue1}		{RGB}{0,177,234}				% deep cyan
+\definecolor{blue2}		{RGB}{76,200,239}				% lighter cyan
+\definecolor{blue3}		{RGB}{127,215,244}				% lighter cyan
+\definecolor{blue4}		{RGB}{178,231,248}				% lighter cyan
+\definecolor{blue5}		{RGB}{198,251,255}				% lighter cyan
+\definecolor{bluegray1}	{RGB}{0,127,167}				% deep cyan/gray mix
+\definecolor{bluegray2}	{RGB}{76,165,193}				% lighter cyan/gray mix
+\definecolor{bluegray3}	{RGB}{127,191,211}				% lighter cyan/gray mix
+\definecolor{bluegray4}	{RGB}{178,216,228}				% lighter cyan/gray mix
+\definecolor{gray1}		{RGB}{76,84,93}				% deep gray
+\definecolor{gray2}		{RGB}{129,135,141}				% lighter gray
+\definecolor{gray3}		{RGB}{165,169,174}				% lighter gray
+\definecolor{gray4}		{RGB}{201,203,206}				% lighter gray
+\definecolor{orange1}	{RGB}{255,126,46}				% deep orange
+\definecolor{orange2}	{RGB}{255,164,108}				% lighter orange
+\definecolor{orange3}	{RGB}{255,190,150}				% lighter orange
+\definecolor{orange4}	{RGB}{255,216,192}				% lighter orange
+\definecolor{purple}		{RGB}{89,89,171}				% purple
+\definecolor{brown}		{RGB}{205,133,63}				% brown
+
+\def\smallopacity	{0.7}								% slightly opaque
+\def\mediumopacity	{0.5}								% more opaque
+\def\bigopacity		{0.3}								% very opaque
+
+\pgfplotsset{										% custom color bar
+    colormap={custom_map}{[5pt]
+            rgb255(0pt)=(255,126,46);
+            rgb255(500pt)=(255,190,150);
+            rgb255(1000pt)=(0,177,234);
+            rgb255(1500pt)=(127,215,244);
+    },
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%% 
+% Border of pictures
+%%%%%%%%%%%%%%%%%%%%%%%% 
+\setlength{\fboxsep}{0pt}
+\setlength{\fboxrule}{1pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%% 
+% Beamer settings
+%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamercolor{titlelike}{parent=palette primary, fg=blue1}
+\setbeamercolor{frametitle}{bg=gray2, fg=white}
+\setbeamerfont{section in toc}{series=\bfseries}
+
+%%%%%%%%%%%%%%%%%%%%%%%% 
+% Custom style for code formatting
+%%%%%%%%%%%%%%%%%%%%%%%% 
+\lstset{
+	language=bash,
+	basicstyle=\small\ttfamily\color{bluegray1},
+	keywordstyle=\color{blue1},
+	commentstyle=\color{purple}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%% 
+% Custom default tikz arrow tip
+%%%%%%%%%%%%%%%%%%%%%%%%
+\tikzset{>=stealth}
+
+%%%%%%%%%%%%%%%%%%%%%%%% 
+% Custom enumerate style
+%%%%%%%%%%%%%%%%%%%%%%%% 
+\setenumerate{label=\textcolor{bluegray1}{$\bm{\diamond}$},itemsep=1pt,topsep=5pt} 
+
+%%%%%%%%%%%%%%%%%%%%%%%% 
+% Custom hyperlinks style
+%%%%%%%%%%%%%%%%%%%%%%%% 
+\hypersetup{
+    colorlinks 	= true,								% allow link coloring
+    breaklinks 	= true,								% allow linebreaks for long links
+    urlcolor 		= purple,								% url color
+    linkcolor 	= gray1,								% internal links color
+    citecolor 	= bluegray1,							% bibliographic link color
+    pdfborder 	= {0 0 0}								% border style
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%% 
+% Math commands
+%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\V}[1]{\textbf{#1}}						% vector notation
+\newcommand{\GV}[1]{\boldsymbol{#1}}					% vector notation for complex cases
+
+%%%%%%%%%%%%%%%%%%%%%%%% 

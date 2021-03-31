@@ -1,0 +1,208 @@
+%%%%%%%%%%%%%%%%%%%%%%%% 
+% Main packages
+%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[a4paper]{geometry}						% manages document dimensions
+\usepackage[utf8]{inputenc}							% translates various input encodings into latex internal language
+\usepackage[T1]{fontenc}								% manages selection of font encoding
+\usepackage[british]{babel}							% manages multilingual typesetting
+\usepackage[osf]{libertine}							% libertine font
+\usepackage[
+	DIV=14,
+	BCOR=2mm,
+	headinclude=true,
+	footinclude=false
+	]{typearea}									% set page margins
+\if@twoside % commands below work only for twoside option of \documentclass
+	\newlength{\textblockoffset}
+	\setlength{\textblockoffset}{12mm}
+	\addtolength{\hoffset}{\textblockoffset}
+	\addtolength{\evensidemargin}{-2.0\textblockoffset}
+\fi
+
+\usepackage{etex} 									% extends memory
+
+%%%%%%%%%%%%%%%%%%%%%%%% 
+% Math packages
+%%%%%%%%%%%%%%%%%%%%%%%% 
+\usepackage{amsmath}								% for main mathematical features
+\usepackage{amsxtra}								% a few rarely used math-related commands
+\usepackage{amssymb}								% extended symbol collection
+\usepackage{amsthm}								% for theorem-like structures
+\usepackage{ifthen}									% conditional commands
+\usepackage{mathtools}								% extension of amsmath
+\usepackage{stmaryrd} 								% symbols for computer science
+\usepackage{siunitx} 								% formatting numbers with 10^
+\usepackage{textcomp} 								% for many text symbols
+\usepackage{bm} 									% boldmath symbols
+\usepackage{esint} 									% for \oiint symbol and integrals style
+
+\usepackage{bibentry}
+\nobibliography*
+
+%%%%%%%%%%%%%%%%%%%%%%%% 
+% Arrays packages
+%%%%%%%%%%%%%%%%%%%%%%%% 
+\usepackage{booktabs}								% enhances tables quality
+\usepackage{multirow}								% create tab­u­lar cells span­ning mul­ti­ple rows
+\usepackage{multicol}								% create tab­u­lar cells span­ning mul­ti­ple columns
+\usepackage{bigdelim}								% multi-row delimiters in arrays
+\usepackage{tabularx}								% extends tabular with adjustable-width columns 
+
+%%%%%%%%%%%%%%%%%%%%%%%% 
+% Layout packages
+%%%%%%%%%%%%%%%%%%%%%%%% 
+\usepackage{hyperref}								% production of hypertext links
+\usepackage{enumitem}								% provides control over itemize and enumerate packages
+\usepackage{ulem} 									% for underlining things
+\usepackage{setspace}								% to set space between lines
+\usepackage{lipsum}									% write random text
+\usepackage{listings}								% to typeset source code
+
+\usepackage{fancyhdr}								% construction of headers and footers
+\usepackage{ifoddpage}								% determine if current page is odd or even
+\usepackage{lscape} 								% place selected parts of a document in landscape
+\usepackage{epigraph}								% for epigraph typesetting
+\setlength\epigraphwidth{8cm}							% set epigraph width
+\setlength\epigraphrule{0pt}							% set width of the horizontal line appearing under the epigraph
+\usepackage{titlesec}	 							% alternative section titles
+\usepackage{color} 									% all this block for custom chapter titles
+
+%%%%%%%%%%%%%%%%%%%%%%%% 
+% Figures packages
+%%%%%%%%%%%%%%%%%%%%%%%% 
+\usepackage{graphicx}								% graphics support
+\usepackage[font={footnotesize},labelfont={bf}]{caption} 		% style of figure captions
+\usepackage{fp}									% high-precision arithmetic operations
+\usepackage[final]{pdfpages} 							% inclusion of PDF pages (must be put BEFORE pgfplots, tikz and externalize stuff)
+\usepackage{subfigure}								% subfigure support
+\usepackage{pgfplots}								% pgfplots support
+\usepackage{tikz}									% tikz support
+\usepackage{tikz-3dplot}								% 3D plots
+
+\pgfplotsset{compat=1.17}								% require a specific version of pgfplots					
+
+\usepgfplotslibrary{external} 							% converts each picture as a separate pdf
+\tikzexternalize[optimize command away=\includepdf] 		% the option is for includepdf compatibility (from pdfpages package)
+\tikzsetexternalprefix{ext/}								% put externally compiled figures in ext/	
+
+%%%%%%%%%%%%%%%%%%%%%%%% 
+% Color packages and definitions
+%%%%%%%%%%%%%%%%%%%%%%%% 
+\usepackage{xcolor}									% driver-independant colors extensions
+\usepackage{color} 									% foreground and background color control 
+
+\definecolor{blue1}	{RGB}{0,177,234}					% deep cyan
+\definecolor{blue2}	{RGB}{76,200,239}					% lighter cyan
+\definecolor{blue3}	{RGB}{127,215,244}					% lighter cyan
+\definecolor{blue4}	{RGB}{178,231,248}					% lighter cyan
+\definecolor{bluegray1}{RGB}{0,127,167}					% deep cyan/gray mix
+\definecolor{bluegray2}{RGB}{76,165,193}				% lighter cyan/gray mix
+\definecolor{bluegray3}{RGB}{127,191,211}				% lighter cyan/gray mix
+\definecolor{bluegray4}{RGB}{178,216,228}				% lighter cyan/gray mix
+\definecolor{gray1}	{RGB}{76,84,93}					% deep gray
+\definecolor{gray2}	{RGB}{129,135,141}					% lighter gray
+\definecolor{gray3}	{RGB}{165,169,174}					% lighter gray
+\definecolor{gray4}	{RGB}{201,203,206}					% lighter gray
+\definecolor{orange1}	{RGB}{255,126,46}				% deep orange
+\definecolor{orange2}	{RGB}{255,164,108}				% lighter orange
+\definecolor{orange3}	{RGB}{255,190,150}				% lighter orange
+\definecolor{orange4}	{RGB}{255,216,192}				% lighter orange
+\definecolor{purple}	{RGB}{89,89,171}					% purple
+\definecolor{brown}	{RGB}{205,133,63}					% brown
+
+\def\smallopacity		{0.7}							% slightly opaque
+\def\bigopacity		{0.5}								% more opaque
+\def\verybigopacity	{0.3}								% very opaque
+
+%%%%%%%%%%%%%%%%%%%%%%%% 
+% Custom chapter titles
+%%%%%%%%%%%%%%%%%%%%%%%% 
+\titleformat{\chapter}[display]%
+{\bfseries\Large}%
+{%
+\hfill\fontsize{100}{70}\selectfont\color{lightgray}\textsc{\thechapter}}%
+{0ex}%
+{\filleft\fontsize{40}{45}\selectfont\scshape}%
+[\vspace{0ex}]%
+
+%%%%%%%%%%%%%%%%%%%%%%%% 
+% Custom enumerate style
+%%%%%%%%%%%%%%%%%%%%%%%% 
+\setenumerate{label=\textcolor{bluegray1}{$\bm{\diamond}$},itemsep=1pt,topsep=5pt} 
+
+%%%%%%%%%%%%%%%%%%%%%%%% 
+% Custom caption fonts
+%%%%%%%%%%%%%%%%%%%%%%%% 
+\DeclareCaptionLabelSeparator*{vbar}{{\bfseries{} | }}
+\captionsetup{labelsep=vbar}
+
+%%%%%%%%%%%%%%%%%%%%%%%% 
+% Custom hyperlinks style
+%%%%%%%%%%%%%%%%%%%%%%%% 
+\hypersetup{
+    colorlinks 	= true,								% allow link coloring
+    breaklinks 	= true,								% allow linebreaks for long links
+    urlcolor 		= purple,								% url color
+    linkcolor 	= gray1,								% internal links color
+    citecolor 	= bluegray1,							% bibliographic link color
+    pdfborder 	= {0 0 0}								% border style
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%% 
+% Custom choice for "veuves et orphelines"
+%%%%%%%%%%%%%%%%%%%%%%%% 
+\widowpenalty=9999
+\clubpenalty=9999
+
+%%%%%%%%%%%%%%%%%%%%%%%% 
+% Figure and tikz sizes
+%%%%%%%%%%%%%%%%%%%%%%%%
+\tikzset{every mark/.append style={scale=0.6}}				% size of tikz marks
+\pgfplotsset{legend style={font=\footnotesize}}				% size of legend text
+\pgfplotsset{every tick label/.append style={font=\footnotesize}}	% size of ticks in plots
+
+%%%%%%%%%%%%%%%%%%%%%%%% 
+% Math commands
+%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\V}[1]{\textbf{#1}}						% vector notation
+
+%%%%%%%%%%%%%%%%%%%%%%%% 
+% Usual textual things
+%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\eg}{\textit{e.g.}\;}						% e.g. notation
+\newcommand{\ie}{\textit{i.e.}\;}							% i.e. notation
+\newcommand{\etal}{\textit{et al}\;}						% et. al. notation
+
+%%%%%%%%%%%%%%%%%%%%%%%% 
+% Fancy page style for books
+%%%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{plain}{
+	\fancyhf{}
+	\fancyfoot[LE]{\footnotesize \sffamily \bfseries \thepage}
+	\fancyfoot[RO]{\footnotesize \sffamily \bfseries \thepage}
+	\renewcommand{\headrulewidth}{0pt}
+	\renewcommand{\footrulewidth}{0pt}
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE]{\footnotesize \sffamily \bfseries }
+\fancyhead[RO]{\footnotesize \sffamily \bfseries }
+\fancyfoot[LE]{\footnotesize \sffamily \bfseries \thepage}
+\fancyfoot[RO]{\footnotesize \sffamily \bfseries \thepage}
+	
+\makeatletter
+\def\parsenode[#1]#2\pgf@nil{%
+	\tikzset{label node/.style={#1}}
+	\def\nodetext{#2}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%% 
+% Page insertion and jump
+%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\insertemptypage}{								%
+	\clearpage \thispagestyle{empty} \strut \newpage}				% insert an empty page	
+\newcommand{\jumpandstartoneven}{							%
+	\clearpage \checkoddpage \ifoddpage \insertemptypage \else \fi}	% go to next even page
+\newcommand{\jumpandstartonodd}{								%
+	\clearpage \checkoddpage \ifoddpage \else \insertemptypage \fi}	% go to next odd page

@@ -1,0 +1,39 @@
+\documentclass[tikz, border=1cm]{standalone}
+\input{header}
+
+%%% Patiente
+\def\name{Dupont}
+
+%%% Enter LF values below as a succession of (week, lf) pairs
+%%% Example: \def\lfi{(15,28) (20,47) (25,62) (30,73) (35,82)}
+%%% Leave blank to skip bip plot
+%%% For twins, fill the lfii line in the same way
+\def\lfi{(15,18) (20,31) (25,44) (30,58) (35,65)}
+\def\lfii{(15,16) (20,28) (25,39) (30,52) (35,62)}
+
+%%% Enter BIP values below as a succession of (week, bip) pairs
+%%% Example: \def\bipi{(15,28) (20,47) (25,62) (30,73) (35,82)}
+%%% Leave blank to skip lf plot
+%%% For twins, fill the bipii line in the same way
+\def\bipi{(15,28) (20,47) (25,62) (30,73) (35,82)}
+\def\bipii{}
+
+%%% Enter PA values below as a succession of (week, pa) pairs
+%%% Example: \def\pai{(15,28) (20,47) (25,62) (30,73) (35,82)}
+%%% Leave blank to skip pa plot
+%%% For twins, fill the paii line in the same way
+\def\pai{(15,100) (20,150) (25,205) (30,255) (35,306)}
+\def\paii{}
+
+%%% Enter PC values below as a succession of (week, pc) pairs
+%%% Example: \def\pci{(15,28) (20,47) (25,62) (30,73) (35,82)}
+%%% Leave blank to skip pa plot
+%%% For twins, fill the pcii line in the same way
+\def\pci{(20,170) (25,230) (30,275) (35,305)}
+\def\pcii{}
+
+%%%%%%%%%%%%%%
+\begin{document}
+\input{lf_bip_pa}
+\input{bip_pc}
+\end{document}

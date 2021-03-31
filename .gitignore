@@ -1,6 +1,12 @@
 *.aux
+*.nav
+*.toc
+*.snm
 *.log
 *.out
 *.gz
 *.DS_Store
-*.pdf
+*.pgf-plot.gnuplot
+*.pgf-plot.table
+*.vrb
+*_minted-code*

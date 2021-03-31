@@ -1,0 +1,38 @@
+\documentclass[tikz, border = 1 cm]{standalone}
+
+%%%%%%%%%%%%%%
+\usepackage{tikz}
+\usepackage{pgfplots}
+%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%
+\definecolor{blue1}		{RGB}{0,177,234}
+\definecolor{bluegray1}	{RGB}{0,127,167}
+\definecolor{gray1}		{RGB}{76,84,93}
+\definecolor{orange1}	{RGB}{255,126,46}
+%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%
+\begin{document}
+
+%%%%%%%%%%%%%%
+\begin{tikzpicture}[	trim axis left, trim axis right, font=\scriptsize]
+	\begin{axis}[	xmin=-5, xmax=25, ymin=-20, ymax=20, scale=0.8, width=\textwidth, height=.3\textwidth, scale only axis=true,
+				legend cell align=left, legend pos=south west,
+				grid=major, xlabel=$t$, ylabel=$x$]
+			
+		\legend{$x$ ref., $x$ stabilized, $u$}
+			
+		\addplot[draw=black, 	thick, forget plot, dash pattern=on 2pt] coordinates {(0,-25) (0,25)}; 
+		\addplot[draw=blue1, 	thick, smooth] 			table[x index=0,y index=1] {lorenz_ref.dat}; 
+		\addplot[draw=bluegray1, 	thick, smooth, forget plot]	table[x index=0,y index=1] {lorenz_stabilizer_plot_init.dat}; 
+		\addplot[draw=orange1, 	thick, smooth]			table[x index=0,y index=1] {lorenz_stabilizer_plot_end.dat}; 
+		\addplot[draw=gray1, 	thick, smooth]			table[x index=0,y index=4] {lorenz_stabilizer_plot.dat}; 
+			
+	\end{axis}
+\end{tikzpicture}
+%%%%%%%%%%%%%%
+
+\end{document}

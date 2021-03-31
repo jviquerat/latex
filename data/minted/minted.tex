@@ -1,0 +1,35 @@
+\documentclass[border=0.5 cm]{standalone}
+
+%%%%%%%%%%%%%%
+\usepackage{xcolor}
+\usepackage{minted}
+\usepackage{tcolorbox}
+\usepackage{etoolbox}
+%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%% 
+% minted settings, for code typesetting
+% minted requires several things:
+% - the Pygments package must be installed -> pip install Pygments
+% - the --shell-escape must be added to the pdflatex command line
+%%%%%%%%%%%%%%%%%%%%%%%% 
+\usemintedstyle{solarized-dark}
+\setminted{fontsize=\footnotesize}
+\definecolor{mintedbg}{RGB}{33,44,49}
+\newtcolorbox{mintedbox}{colframe = mintedbg, colback  = mintedbg, coltitle = mintedbg}
+\BeforeBeginEnvironment{minted}{\begin{mintedbox}}
+\AfterEndEnvironment{minted}{\end{mintedbox}}
+
+%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%
+\begin{document}
+
+%%%%%%%%%%%%%%
+\begin{minted}{python}
+from stable_baselines import PPO2
+model = PPO2("MlpPolicy", "CartPole-v1").learn(10000)
+\end{minted}
+%%%%%%%%%%%%%%
+
+\end{document}

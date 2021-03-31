@@ -1,0 +1,16 @@
+\begin{figure}[h!]
+\centering
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subfigure[Finite elements : continuous, non-constant-per-cell solution]{
+\input{fig/intro/fe}
+}\qquad
+\subfigure[Finite volumes : discontinuous, constant-per-cell solution]{
+\input{fig/intro/fv}
+}\qquad
+\subfigure[Discontinuous Galerkin : discontinuous, non-constant-per-cell solution]{
+\input{fig/intro/dg}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\caption[Comparison between finite elements, finite volumes and discontinuous Galerkin]{\textbf{Concept comparison between FE, FV and DG}. The triangles represent the cells of the mesh, while the orange dots represent the degrees of freedom. For FE, the whole problem is considered at once, and the obtained numerical solution is continuous across cell interfaces. For FV, a local problem is considered in each cell, leading to a discontinuous, constant-per-cell solution. For DG, the method is analog to FV, but the solution is not restrained to a constant per cell. In this case, a first-order polynomial approximation is used for the DG discretization.}
+\label{fig:methods}
+\end{figure}
