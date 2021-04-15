@@ -22,7 +22,7 @@ They are for everyone to use/modify within the boundaries of academic work/publi
 ## Maths figures
 
 <p align="center">
-  <img width="800" alt="" src="https://user-images.githubusercontent.com/44053700/114903812-75a33a00-9e17-11eb-8e34-33b3d3e7c6f1.jpg">
+  <img width="500" alt="" src="https://user-images.githubusercontent.com/44053700/114903812-75a33a00-9e17-11eb-8e34-33b3d3e7c6f1.jpg">
 </p>
 
 ## Letter template
