@@ -19,6 +19,12 @@ They are for everyone to use/modify within the boundaries of academic work/publi
   <img width="800" alt="" src="https://user-images.githubusercontent.com/44053700/113161848-0d612f80-923f-11eb-8009-d2985adcb344.jpg">
 </p>
 
+## Maths figures
+
+<p align="center">
+  <img width="800" alt="" src="https://user-images.githubusercontent.com/44053700/114903812-75a33a00-9e17-11eb-8e34-33b3d3e7c6f1.jpg">
+</p>
+
 ## Letter template
 
 It is a formal letter template with a header, including a logo. Once you have defined your titles and affiliations in english and french, you can easily switch from one to the other, the header, date and object will be adapted automatically.
