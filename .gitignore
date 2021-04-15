@@ -3,3 +3,5 @@
 *.out
 *.gz
 *.DS_Store
+*.pgf-plot.gnuplot
+*.pgf-plot.table
