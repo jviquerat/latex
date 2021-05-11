@@ -24,29 +24,29 @@
 %%%%%%%%%%%%%%
 \begin{tikzpicture}[		font=\scriptsize,
 					label/.style={align=center, fill=white, inner sep=1pt}]
-		\begin{axis}[	view={0}{90}, clip=false, grid=major,
-					xmin=-2, xmax=2, ymin=-2, ymax=2,
-					xlabel=$x$, ylabel=$y$, xtick={-2,-1,0,1,2}, ytick={-2,-1,0,1,2}]
+	\begin{axis}[	view={0}{90}, clip=false, grid=major,
+				xmin=-2, xmax=2, ymin=-2, ymax=2,
+				xlabel=$x$, ylabel=$y$, xtick={-2,-1,0,1,2}, ytick={-2,-1,0,1,2}]
 
-			\addplot [	no markers, raw gnuplot, contour prepared, contour/labels=false,
-					point meta min=0, point meta max=10, ultra thick]
-				gnuplot {
-					set samples 500;
-					set isosamples 500;
-					set contour base;
-					set cntrparam levels discrete 1,5,50,250;
-					set style data lines;
-					unset surface;
-					splot [-2:2] [-2:2] (1-x)**2+100*(y-x**2)**2;
-					};
-			\node[	label, rotate=40] 	at (axis cs: 0.5,0.16) {1};
-			\node[	label, rotate=0] 		at (axis cs: 0.0,0.2) {5};
-			\node[	label, rotate=0] 		at (axis cs: 0.0,0.7) {50};
-			\node[	label, rotate=0] 		at (axis cs: 0.0,-0.7) {50};
-			\node[	label, rotate=0] 		at (axis cs: 0.0,1.58) {250};
-			\node[	label, rotate=0] 		at (axis cs: 0.0,-1.58) {250};
-		\end{axis}
-	\end{tikzpicture}
+		\addplot [	no markers, raw gnuplot, contour prepared, contour/labels=false,
+				point meta min=0, point meta max=10, ultra thick]
+			gnuplot {
+				set samples 500;
+				set isosamples 500;
+				set contour base;
+				set cntrparam levels discrete 1,5,50,250;
+				set style data lines;
+				unset surface;
+				splot [-2:2] [-2:2] (1-x)**2+100*(y-x**2)**2;
+				};
+		\node[	label, rotate=40] 	at (axis cs: 0.5,0.16) {1};
+		\node[	label, rotate=0] 		at (axis cs: 0.0,0.2) {5};
+		\node[	label, rotate=0] 		at (axis cs: 0.0,0.7) {50};
+		\node[	label, rotate=0] 		at (axis cs: 0.0,-0.7) {50};
+		\node[	label, rotate=0] 		at (axis cs: 0.0,1.58) {250};
+		\node[	label, rotate=0] 		at (axis cs: 0.0,-1.58) {250};
+	\end{axis}
+\end{tikzpicture}
 %%%%%%%%%%%%%%
 
 \end{document}
