@@ -3,6 +3,7 @@
 %%%%%%%%%%%%%%
 \usepackage{tikz}
 \usepackage{pgfplots}
+\usepgfplotslibrary{fillbetween}
 %%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%
@@ -25,20 +26,55 @@
 
 %%%%%%%%%%%%%%
 \begin{tikzpicture}[	trim axis left, trim axis right, font=\scriptsize,
-				upper/.style={	name path=upper, smooth, draw=none},
-				lower/.style={	name path=lower, smooth, draw=none},]
-	\begin{semilogyaxis}[	xmin=0, xmax=600, scale=0.8,
-						legend cell align=left, legend pos=south west,
-						grid=major, xlabel=generations, ylabel=reward]
+				upper/.style=	{name path=upper, smooth},
+				lower/.style=	{name path=lower, smooth},
+				p3p97/.style=	{smooth, dash pattern=on 2pt},
+				p10p90/.style=	{opacity=0.5},
+				p50/.style=	{thick, smooth}]
+	\begin{axis}[	xmin=11, xmax=41, ymin=0, ymax=160,
+				legend cell align=left, legend pos=south west,
+				ytick={0,10,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160},
+				grid=both, width=10cm, height=15cm]
 	
-		\legend{\textsc{bip}}
-		% CMAES
-		\addplot [upper, forget plot] 					table[x index=0,y index=3] {bip}; 
-		\addplot [lower, forget plot] 					table[x index=0,y index=2] {}; 
-		\addplot [fill=myblue4, opacity=0.5, forget plot] 		fill between[of=upper and lower];
-		\addplot[draw=myblue1, thick, smooth] 			table[x index=0,y index=1] {}; 
+		%\legend{\textsc{bip}, \textsc{lf}}
 		
-	\end{semilogyaxis}
+		% bip
+		\addplot[p3p97, 	forget plot, draw=orange1] 	table[x index=0,y index=1] {bip.csv}; 
+		\addplot[p3p97, 	forget plot, draw=orange1] 	table[x index=0,y index=5] {bip.csv};
+		\addplot[upper, 		forget plot, draw=orange1] 	table[x index=0,y index=2] {bip.csv}; 
+		\addplot[lower, 		forget plot, draw=orange1] 	table[x index=0,y index=4] {bip.csv}; 
+		\addplot[p10p90, 	forget plot, fill=orange4] 		fill between[of=upper and lower];
+		\addplot[thick, smooth,		 draw=orange1]		table[x index=0,y index=3] {bip.csv}; \label{bip}
+		
+		% lf
+		\addplot[p3p97, 	forget plot, draw=blue1] 	table[x index=0,y index=1] {lf.csv}; 
+		\addplot[p3p97, 	forget plot, draw=blue1] 	table[x index=0,y index=5] {lf.csv};
+		\addplot[upper, 		forget plot, draw=blue1] 	table[x index=0,y index=2] {lf.csv}; 
+		\addplot[lower, 		forget plot, draw=blue1] 	table[x index=0,y index=4] {lf.csv}; 
+		\addplot[p10p90, 	forget plot, fill=blue4] 	fill between[of=upper and lower];
+		\addplot[thick, smooth,		 draw=blue1]	table[x index=0,y index=3] {lf.csv}; \label{lf}
+		
+	\end{axis}
+	
+	\begin{axis}[	xmin=11, xmax=41, ymin=0, ymax=400, axis y line*=right,
+				legend cell align=left, legend pos=north west,
+				ytick={0,25,50,75,100,125,150,175,200,225,250,275,300,325,350,375,400},
+				grid=both, width=10cm, height=15cm]
+				
+		\legend{\textsc{pa}}
+		\addlegendimage{/pgfplots/refstyle=bip}	\addlegendentry{\textsc{bip}}
+		\addlegendimage{/pgfplots/refstyle=lf}	\addlegendentry{\textsc{lf}}
+		
+		% pa
+		\addplot[p3p97, 	forget plot, draw=purple1] 	table[x index=0,y index=1] {pa.csv}; 
+		\addplot[p3p97, 	forget plot, draw=purple1] 	table[x index=0,y index=5] {pa.csv};
+		\addplot[upper, 		forget plot, draw=purple1] 	table[x index=0,y index=2] {pa.csv}; 
+		\addplot[lower, 		forget plot, draw=purple1] 	table[x index=0,y index=4] {pa.csv}; 
+		\addplot[p10p90, 	forget plot, fill=purple4] 	fill between[of=upper and lower];
+		\addplot[thick, smooth,		 draw=purple1]	table[x index=0,y index=3] {pa.csv}; \addlegendentry{\textsc{pa}}
+		
+	\end{axis}	
+	
 \end{tikzpicture}
 %%%%%%%%%%%%%%
 
