@@ -34,9 +34,10 @@
 	\begin{axis}[	xmin=11, xmax=41, ymin=0, ymax=160,
 				legend cell align=left, legend pos=south west,
 				ytick={0,10,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160},
-				grid=both, width=10cm, height=15cm]
-	
-		%\legend{\textsc{bip}, \textsc{lf}}
+				grid=both, minor tick num=4, 
+				major grid style={line width=.5pt,draw=gray!50}, 
+				minor grid style={line width=.1pt,draw=gray!50},
+				width=10cm, height=15cm]
 		
 		% bip
 		\addplot[p3p97, 	forget plot, draw=orange1] 	table[x index=0,y index=1] {bip.csv}; 
@@ -59,7 +60,10 @@
 	\begin{axis}[	xmin=11, xmax=41, ymin=0, ymax=400, axis y line*=right,
 				legend cell align=left, legend pos=north west,
 				ytick={0,25,50,75,100,125,150,175,200,225,250,275,300,325,350,375,400},
-				grid=both, width=10cm, height=15cm]
+				grid=both, minor tick num=4,
+				major grid style={line width=.5pt,draw=gray!50}, 
+				minor grid style={line width=.1pt,draw=gray!50},
+				width=10cm, height=15cm]
 				
 		\legend{\textsc{pa}}
 		\addlegendimage{/pgfplots/refstyle=bip}	\addlegendentry{\textsc{bip}}
