@@ -1,85 +1,36 @@
-\documentclass[tikz, border = 1 cm]{standalone}
+\documentclass[tikz, border=1cm]{standalone}
+\input{header}
 
-%%%%%%%%%%%%%%
-\usepackage{tikz}
-\usepackage{pgfplots}
-\usepgfplotslibrary{fillbetween}
-%%%%%%%%%%%%%%
+%%% Enter LF values below as a succession of (week, lf) pairs
+%%% Example: \def\lfi{(15,28) (20,47) (25,62) (30,73) (35,82)}
+%%% Leave blank to skip bip plot
+%%% For twins, fill the lfii line in the same way
+\def\lfi{(15,18) (20,31) (25,44) (30,58) (35,65)}
+\def\lfii{(15,16) (20,28) (25,39) (30,52) (35,62)}
 
-%%%%%%%%%%%%%%
-\definecolor{blue1}{RGB}{0,177,234}
-\definecolor{blue4}{RGB}{178,231,248}
-\definecolor{gray1}{RGB}{76,84,93}
-\definecolor{gray4}{RGB}{201,203,206}
-\definecolor{bluegray1}{RGB}{0,127,167}
-\definecolor{bluegray4}{RGB}{178,216,228}
-\definecolor{orange1}{RGB}{255,126,46}
-\definecolor{orange4}{RGB}{255,216,192}
-\definecolor{purple1}{RGB}{89,89,171}
-\definecolor{purple4}{RGB}{189,189,231}
-%%%%%%%%%%%%%%
+%%% Enter BIP values below as a succession of (week, bip) pairs
+%%% Example: \def\bipi{(15,28) (20,47) (25,62) (30,73) (35,82)}
+%%% Leave blank to skip lf plot
+%%% For twins, fill the bipii line in the same way
+\def\bipi{(15,28) (20,47) (25,62) (30,73) (35,82)}
+\def\bipii{}
 
-%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%
+%%% Enter PA values below as a succession of (week, pa) pairs
+%%% Example: \def\pai{(15,28) (20,47) (25,62) (30,73) (35,82)}
+%%% Leave blank to skip pa plot
+%%% For twins, fill the paii line in the same way
+\def\pai{(15,100) (20,150) (25,205) (30,255) (35,306)}
+\def\paii{}
+
+%%% Enter PC values below as a succession of (week, pc) pairs
+%%% Example: \def\pci{(15,28) (20,47) (25,62) (30,73) (35,82)}
+%%% Leave blank to skip pa plot
+%%% For twins, fill the pcii line in the same way
+\def\pci{(20,170) (25,230) (30,275) (35,305)}
+\def\pcii{}
+
 %%%%%%%%%%%%%%
 \begin{document}
-
-%%%%%%%%%%%%%%
-\begin{tikzpicture}[	trim axis left, trim axis right, font=\scriptsize,
-				upper/.style=	{name path=upper, smooth},
-				lower/.style=	{name path=lower, smooth},
-				p3p97/.style=	{smooth, dash pattern=on 2pt},
-				p10p90/.style=	{opacity=0.5},
-				p50/.style=	{thick, smooth}]
-	\begin{axis}[	xmin=11, xmax=41, ymin=0, ymax=160,
-				legend cell align=left, legend pos=south west,
-				ytick={0,10,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160},
-				grid=both, minor tick num=4, 
-				major grid style={line width=.5pt,draw=gray!50}, 
-				minor grid style={line width=.1pt,draw=gray!50},
-				width=10cm, height=15cm]
-		
-		% bip
-		\addplot[p3p97, 	forget plot, draw=orange1] 	table[x index=0,y index=1] {bip.csv}; 
-		\addplot[p3p97, 	forget plot, draw=orange1] 	table[x index=0,y index=5] {bip.csv};
-		\addplot[upper, 		forget plot, draw=orange1] 	table[x index=0,y index=2] {bip.csv}; 
-		\addplot[lower, 		forget plot, draw=orange1] 	table[x index=0,y index=4] {bip.csv}; 
-		\addplot[p10p90, 	forget plot, fill=orange4] 		fill between[of=upper and lower];
-		\addplot[thick, smooth,		 draw=orange1]		table[x index=0,y index=3] {bip.csv}; \label{bip}
-		
-		% lf
-		\addplot[p3p97, 	forget plot, draw=blue1] 	table[x index=0,y index=1] {lf.csv}; 
-		\addplot[p3p97, 	forget plot, draw=blue1] 	table[x index=0,y index=5] {lf.csv};
-		\addplot[upper, 		forget plot, draw=blue1] 	table[x index=0,y index=2] {lf.csv}; 
-		\addplot[lower, 		forget plot, draw=blue1] 	table[x index=0,y index=4] {lf.csv}; 
-		\addplot[p10p90, 	forget plot, fill=blue4] 	fill between[of=upper and lower];
-		\addplot[thick, smooth,		 draw=blue1]	table[x index=0,y index=3] {lf.csv}; \label{lf}
-		
-	\end{axis}
-	
-	\begin{axis}[	xmin=11, xmax=41, ymin=0, ymax=400, axis y line*=right,
-				legend cell align=left, legend pos=north west,
-				ytick={0,25,50,75,100,125,150,175,200,225,250,275,300,325,350,375,400},
-				grid=both, minor tick num=4,
-				major grid style={line width=.5pt,draw=gray!50}, 
-				minor grid style={line width=.1pt,draw=gray!50},
-				width=10cm, height=15cm]
-				
-		\legend{\textsc{pa}}
-		\addlegendimage{/pgfplots/refstyle=bip}	\addlegendentry{\textsc{bip}}
-		\addlegendimage{/pgfplots/refstyle=lf}	\addlegendentry{\textsc{lf}}
-		
-		% pa
-		\addplot[p3p97, 	forget plot, draw=purple1] 	table[x index=0,y index=1] {pa.csv}; 
-		\addplot[p3p97, 	forget plot, draw=purple1] 	table[x index=0,y index=5] {pa.csv};
-		\addplot[upper, 		forget plot, draw=purple1] 	table[x index=0,y index=2] {pa.csv}; 
-		\addplot[lower, 		forget plot, draw=purple1] 	table[x index=0,y index=4] {pa.csv}; 
-		\addplot[p10p90, 	forget plot, fill=purple4] 	fill between[of=upper and lower];
-		\addplot[thick, smooth,		 draw=purple1]	table[x index=0,y index=3] {pa.csv}; \addlegendentry{\textsc{pa}}
-		
-	\end{axis}	
-	
-\end{tikzpicture}
-%%%%%%%%%%%%%%
-
+\input{lf_bip_pa}
+\input{bip_pc}
 \end{document}
