@@ -5,30 +5,20 @@ They are for everyone to use/modify within the boundaries of academic work/publi
 
 ## Figures
 
-### CFD
-
 <p align="center">
-  <a href="https://github.com/jviquerat/latex_recipes/blob/master/figures/cfd/turek/turek.tex"><img height="500" alt="" src="https://user-images.githubusercontent.com/44053700/113163245-43eb7a00-9240-11eb-9a70-ce833ba74e0f.jpg"></a>
+  <a href="https://github.com/jviquerat/latex_recipes/blob/master/figures/cfd/turek/turek.tex"><img height="200" alt="" src="https://user-images.githubusercontent.com/44053700/113163245-43eb7a00-9240-11eb-9a70-ce833ba74e0f.jpg"></a>
+  <a href="https://github.com/jviquerat/latex_recipes/blob/master/figures/neural_networks/simple_network/simple_network.tex"><img height="200" alt="" src="https://user-images.githubusercontent.com/44053700/113108146-f6055080-9204-11eb-9bd7-a678ed60adff.jpg"></a>
 </p>
-
-### Neural networks
-
+ 
 <p align="center">
-  <a href="https://github.com/jviquerat/latex_recipes/blob/master/figures/neural_networks/simple_network/simple_network.tex"><img width="400" alt="" src="https://user-images.githubusercontent.com/44053700/113108146-f6055080-9204-11eb-9bd7-a678ed60adff.jpg"></a>
-</p>
-
-<p align="center">
-  <a href="https://github.com/jviquerat/latex_recipes/blob/master/figures/neural_networks/large_network/large_network.tex"><img width="800" alt="" src="https://user-images.githubusercontent.com/44053700/113161848-0d612f80-923f-11eb-8009-d2985adcb344.jpg"></a>
+  <a href="https://github.com/jviquerat/latex_recipes/blob/master/figures/neural_networks/large_network/large_network.tex"><img height="200" alt="" src="https://user-images.githubusercontent.com/44053700/113161848-0d612f80-923f-11eb-8009-d2985adcb344.jpg"></a>
 </p>
 
 ## Plottings
 
 <p align="center">
-  <a href="https://github.com/jviquerat/latex_recipes/blob/master/plottings/maths/rosenbrock_function/rosenbrock_function.tex"><img width="500" alt="" src="https://user-images.githubusercontent.com/44053700/114903812-75a33a00-9e17-11eb-8e34-33b3d3e7c6f1.jpg"></a>
-</p>
-
-<p align="center">
-  <a href="https://github.com/jviquerat/latex_recipes/blob/master/plottings/misc/cfef/cfef.tex"><img width="500" alt="" src="https://user-images.githubusercontent.com/44053700/121852838-537f4880-ccf0-11eb-845a-0db86008a0db.jpg"></a>
+  <a href="https://github.com/jviquerat/latex_recipes/blob/master/plottings/maths/rosenbrock_function/rosenbrock_function.tex"><img height="200" alt="" src="https://user-images.githubusercontent.com/44053700/114903812-75a33a00-9e17-11eb-8e34-33b3d3e7c6f1.jpg"></a>
+  <a href="https://github.com/jviquerat/latex_recipes/blob/master/plottings/misc/cfef/cfef.tex"><img height="200" alt="" src="https://user-images.githubusercontent.com/44053700/121852838-537f4880-ccf0-11eb-845a-0db86008a0db.jpg"></a>
 </p>
 
 ## Templates
