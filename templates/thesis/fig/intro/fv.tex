@@ -1,0 +1,31 @@
+\tdplotsetmaincoords{0}{90}
+
+\centering
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tikzpicture}[scale=1.1]
+%
+	\draw[draw=none] (-0.2,-0.2) rectangle (3.2,3.2);		
+%
+	\fill[blue4] (0,0) rectangle (3,3);
+	\foreach \x in {0,...,2} {
+		\foreach \y in {0,...,2}{
+			\draw[] (\x,\y,0) -- (\x+1,\y,0);
+			\draw[] (\x,\y,0) -- (\x, \y+1,0);
+			\draw[] (\x,\y+1,0) -- (\x+1,\y,0);
+			\filldraw[fill=orange1] (\x+0.3,\y+0.3,0) circle (0.06);
+			\filldraw[fill=orange1] (\x+0.7,\y+0.7,0) circle (0.06);
+		}
+	}
+	\foreach \x in {3} {
+		\foreach \y in {0,...,2}{
+			\draw[] (\x,\y,0) -- (\x, \y+1,0);
+		}
+	}
+	\foreach \x in {0,...,2} {
+		\foreach \y in {3}{
+			\draw[] (\x,\y,0) -- (\x+1, \y,0);
+		}
+	}
+	
+\end{tikzpicture}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

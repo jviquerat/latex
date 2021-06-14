@@ -1,0 +1,41 @@
+% Tout le bazar qui va au debut avant le corps du document
+
+%%% Page de garde
+\begin{minipage}{\textwidth}
+\includepdf[offset=0 0]{layout/frontpage/frontpage.pdf}
+\end{minipage}
+
+% Passage en numerotation "roman" pour le debut
+\insertemptypage
+\pagenumbering{roman}
+\setcounter{page}{1}
+
+% Page de garde
+\insertemptypage
+\insertemptypage
+
+% Quote
+\jumpandstartonodd
+\input{layout/quote}
+
+% Remerciements
+\jumpandstartonodd
+\input{layout/thanks}
+
+% Table of contents
+\jumpandstartonodd
+\pagestyle{plain}
+\setcounter{tocdepth}{2}
+\tableofcontents
+
+% Liste des figures
+\jumpandstartonodd
+\listoffigures
+
+% Liste des tables
+\jumpandstartonodd
+\listoftables
+
+% Passage en numerotation "normale" pour la suite
+\jumpandstartonodd
+\pagenumbering{arabic}

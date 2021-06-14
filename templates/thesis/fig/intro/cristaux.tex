@@ -1,0 +1,126 @@
+\begin{figure}[h!]
+\centering
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% The angles of x,y,z-axes
+\newcommand\xaxis{210}
+\newcommand\yaxis{-30}
+\newcommand\zaxis{90}
+\newcommand\test{\xaxis-\zaxis}
+
+% Nofill sides
+\newcommand\topside[3]{
+  \draw[very thin,draw=black,shift={(\xaxis:#1)},shift={(\yaxis:#2)},
+  shift={(\zaxis:#3)}] (0,0) -- (-\yaxis:5) -- (0,5) --(150:5)--(0,0);}
+\newcommand\leftside[3]{
+  \draw[very thin,draw=black,shift={(\xaxis:#1)},shift={(\yaxis:#2)},
+  shift={(\zaxis:#3)}] (0,0) -- (0,-5) -- (\xaxis:5) --(150:5)--(0,0);}
+\newcommand\rightside[3]{
+  \draw[very thin,draw=black,shift={(\xaxis:#1)},shift={(\yaxis:#2)},
+  shift={(\zaxis:#3)}] (0,0) -- (-\yaxis:5) -- (\yaxis:5) --(0,-5)--(0,0);}
+  
+% Nofill cube
+\newcommand\cube[3]{
+  \topside{#1}{#2}{#3} \leftside{#1}{#2}{#3} \rightside{#1}{#2}{#3}
+}
+  
+% Blue sides
+\newcommand\ftopsideblue[3]{
+  \fill[fill=blue3, draw=none,shift={(\xaxis:#1)},shift={(\yaxis:#2)},
+  shift={(\zaxis:#3)}] (0,0) -- (-\yaxis:1) -- (0,1) --(150:1)--(0,0);}
+\newcommand\fleftsideblue[3]{
+  \fill[fill=blue3, draw=none,shift={(\xaxis:#1)},shift={(\yaxis:#2)},
+  shift={(\zaxis:#3)}] (0,0) -- (0,-1) -- (\xaxis:1) --(150:1)--(0,0);}
+\newcommand\frightsideblue[3]{
+  \fill[fill=blue3, draw=none,shift={(\xaxis:#1)},shift={(\yaxis:#2)},
+  shift={(\zaxis:#3)}] (0,0) -- (-\yaxis:1) -- (\yaxis:1) --(0,-1)--(0,0);}
+
+% Blue fill cube
+\newcommand\bluefcube[3]{
+  \ftopsideblue{#1}{#2}{#3} \fleftsideblue{#1}{#2}{#3} \frightsideblue{#1}{#2}{#3}
+}
+
+% Gray sides
+\newcommand\ftopsidegreen[3]{
+  \fill[fill=gray1, draw=none,shift={(\xaxis:#1)},shift={(\yaxis:#2)},
+  shift={(\zaxis:#3)}] (0,0) -- (-\yaxis:1) -- (0,1) --(150:1)--(0,0);}
+\newcommand\fleftsidegreen[3]{
+  \fill[fill=gray1, draw=none,shift={(\xaxis:#1)},shift={(\yaxis:#2)},
+  shift={(\zaxis:#3)}] (0,0) -- (0,-1) -- (\xaxis:1) --(150:1)--(0,0);}
+\newcommand\frightsidegreen[3]{
+  \fill[fill=gray1, draw=none,shift={(\xaxis:#1)},shift={(\yaxis:#2)},
+  shift={(\zaxis:#3)}] (0,0) -- (-\yaxis:1) -- (\yaxis:1) --(0,-1)--(0,0);}
+
+% Gray fill cube
+\newcommand\greenfcube[3]{
+  \ftopsidegreen{#1}{#2}{#3} \fleftsidegreen{#1}{#2}{#3} \frightsidegreen{#1}{#2}{#3}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subfigure[1D cristal]{ \label{fig:cristal_1D}
+\begin{tikzpicture}[scale=0.5]
+
+	\foreach \x in {0,...,3} {
+		\bluefcube{\x}{0}{4} \greenfcube{\x}{1}{4 } \bluefcube{\x}{2}{4} \greenfcube{\x}{3}{4}
+	}
+	\foreach \z in {0,...,4} {
+		\bluefcube{4}{0}{\z} \greenfcube{4}{1}{\z} \bluefcube{4}{2}{\z} \greenfcube{4}{3}{\z} \bluefcube{4}{4}{\z}
+		\bluefcube{0}{4}{\z} \bluefcube{1}{4}{\z} \bluefcube{2}{4}{\z} \bluefcube{3}{4}{\z} \bluefcube{4}{4}{\z}
+	}
+	\cube{0}{0}{0}
+
+\end{tikzpicture}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subfigure[2D cristal]{ \label{fig:cristal_2D}
+\begin{tikzpicture}[scale=0.5]
+
+	
+	\foreach \z in {0,...,3} {
+		\bluefcube{0}{4}{\z} \greenfcube{1}{4}{\z} \bluefcube{2}{4}{\z} \greenfcube{3}{4}{\z}
+		\bluefcube{4}{0}{\z} \greenfcube{4}{1}{\z} \bluefcube{4}{2}{\z} \greenfcube{4}{3}{\z} \bluefcube{4}{4}{\z}
+	}
+	
+
+	% Top
+	\bluefcube{0}{0}{4} \greenfcube{1}{0}{4} \bluefcube{2}{0}{4} \greenfcube{3}{0}{4} \bluefcube{4}{0}{4}
+	\greenfcube{0}{1}{4} \bluefcube{1}{1}{4} \greenfcube{2}{1}{4} \bluefcube{3}{1}{4} \greenfcube{4}{1}{4}
+	\bluefcube{0}{2}{4} \greenfcube{1}{2}{4} \bluefcube{2}{2}{4} \greenfcube{3}{2}{4} \bluefcube{4}{2}{4}
+	\greenfcube{0}{3}{4} \bluefcube{1}{3}{4} \greenfcube{2}{3}{4} \bluefcube{3}{3}{4} \greenfcube{4}{3}{4}
+	\bluefcube{0}{4}{4} \greenfcube{1}{4}{4} \bluefcube{2}{4}{4} \greenfcube{3}{4}{4} \bluefcube{4}{4}{4}
+	
+	\cube{0}{0}{0}
+
+\end{tikzpicture}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subfigure[3D cristal]{ \label{fig:cristal_3D}
+\begin{tikzpicture}[scale=0.5]
+
+	% Face droite
+	\bluefcube{0}{4}{0} \greenfcube{1}{4}{0} \bluefcube{2}{4}{0} \greenfcube{3}{4}{0} 
+	\greenfcube{0}{4}{1} \bluefcube{1}{4}{1} \greenfcube{2}{4}{1} \bluefcube{3}{4}{1} 
+	\bluefcube{0}{4}{2} \greenfcube{1}{4}{2} \bluefcube{2}{4}{2} \greenfcube{3}{4}{2}   
+	\greenfcube{0}{4}{3} \bluefcube{1}{4}{3} \greenfcube{2}{4}{3} \bluefcube{3}{4}{3}   
+
+	% Face gauche
+	\bluefcube{4}{0}{0} \greenfcube{4}{1}{0} \bluefcube{4}{2}{0} \greenfcube{4}{3}{0} \bluefcube{4}{4}{0}
+	\greenfcube{4}{0}{1} \bluefcube{4}{1}{1} \greenfcube{4}{2}{1} \bluefcube{4}{3}{1} \greenfcube{4}{4}{1}
+	\bluefcube{4}{0}{2} \greenfcube{4}{1}{2} \bluefcube{4}{2}{2} \greenfcube{4}{3}{2} \bluefcube{4}{4}{2}
+	\greenfcube{4}{0}{3} \bluefcube{4}{1}{3} \greenfcube{4}{2}{3} \bluefcube{4}{3}{3} \greenfcube{4}{4}{3}
+		
+	% Top
+	\bluefcube{0}{0}{4} \greenfcube{1}{0}{4} \bluefcube{2}{0}{4} \greenfcube{3}{0}{4} \bluefcube{4}{0}{4}
+	\greenfcube{0}{1}{4} \bluefcube{1}{1}{4} \greenfcube{2}{1}{4} \bluefcube{3}{1}{4} \greenfcube{4}{1}{4}
+	\bluefcube{0}{2}{4} \greenfcube{1}{2}{4} \bluefcube{2}{2}{4} \greenfcube{3}{2}{4} \bluefcube{4}{2}{4}
+	\greenfcube{0}{3}{4} \bluefcube{1}{3}{4} \greenfcube{2}{3}{4} \bluefcube{3}{3}{4} \greenfcube{4}{3}{4}
+	\bluefcube{0}{4}{4} \greenfcube{1}{4}{4} \bluefcube{2}{4}{4} \greenfcube{3}{4}{4} \bluefcube{4}{4}{4}
+	
+	\cube{0}{0}{0}
+		
+\end{tikzpicture}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\caption[Photonic crystal structures]{\textbf{Photonic crystal structures} in one, two and three dimensions. The blue and gray areas represent the alternance of high and low permittivity materials.}
+\label{fig:cristaux}
+\end{figure}

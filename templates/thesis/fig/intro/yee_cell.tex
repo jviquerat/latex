@@ -1,0 +1,59 @@
+\tdplotsetmaincoords{50}{90}
+
+\begin{figure}[h!]
+\centering
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tikzpicture}[scale=1,
+	face/.style={fill=blue3,fill opacity=\verybigopacity,draw opacity=\bigopacity},
+	edge/.style={dash pattern=on 1pt},
+	bulle/.style={fill=black},
+	nodestyle/.style={font=\footnotesize}]
+
+	\def\cubesize{4}
+	\def\circlesize{0.04}
+
+	% Cube faces
+	\fill[face] (0,0,0) -- (0,0,\cubesize) -- (0,\cubesize,\cubesize) -- (0,\cubesize,0) -- cycle;
+	\fill[face] (0,0,0) -- (\cubesize,0,0) -- (\cubesize,0,\cubesize) -- (0,0,\cubesize) -- cycle;
+	\fill[face] (0,0,0) -- (\cubesize,0,0) -- (\cubesize,\cubesize,0) -- (0,\cubesize,0) -- cycle;
+	\fill[face] (0,0,\cubesize) -- (\cubesize,0,\cubesize) -- (\cubesize,\cubesize,\cubesize) -- (0,\cubesize,\cubesize) -- cycle;
+	
+	% Cube edges
+	\draw[edge] (0,0,0) -- (0,0,\cubesize) -- (0,\cubesize,\cubesize) -- (0,\cubesize,0) -- cycle;
+	\draw[edge] (\cubesize,0,0) -- (\cubesize,0,\cubesize) -- (\cubesize,\cubesize,\cubesize) -- (\cubesize,\cubesize,0) -- cycle;
+	\draw[edge] (0,0,0) -- (\cubesize,0,0);
+	\draw[edge] (0,0,\cubesize) -- (\cubesize,0,\cubesize);
+	\draw[edge] (0,\cubesize,\cubesize) -- (\cubesize,\cubesize,\cubesize);
+	\draw[edge] (0,\cubesize,0) -- (\cubesize,\cubesize,0);
+
+	% Centers
+	\draw[edge] (0.5*\cubesize,0,0) -- (0.5*\cubesize,0,\cubesize) -- (0.5*\cubesize,\cubesize,\cubesize) -- (0.5*\cubesize,\cubesize,0) -- cycle;
+	\draw[edge] (0,0,0.5*\cubesize) -- (\cubesize,0,0.5*\cubesize) -- (\cubesize,\cubesize,0.5*\cubesize) -- (0,\cubesize,0.5*\cubesize) -- cycle;
+	\draw[edge] (0,0.5*\cubesize,0) -- (\cubesize,0.5*\cubesize,0) -- (\cubesize,0.5*\cubesize,\cubesize) -- (0,0.5*\cubesize,\cubesize) -- cycle;
+	
+	% Nodes
+	\draw[bulle] (0,0,\cubesize) circle (\circlesize) node[nodestyle,anchor=north] {$(i,j,k)$};
+	\draw[bulle] (0.5*\cubesize,0,\cubesize) circle (\circlesize) node[nodestyle,anchor=north] {$E_y$};
+	\draw[bulle] (0.5*\cubesize,\cubesize,\cubesize) circle (\circlesize) node[nodestyle,anchor=south] {$E_y$};
+	\draw[bulle] (0.5*\cubesize,0,0) circle (\circlesize) node[nodestyle,anchor=north] {$E_y$};
+	\draw[bulle] (0.5*\cubesize,\cubesize,0) circle (\circlesize) node[nodestyle,anchor=south] {$E_y$};
+	\draw[bulle] (0,0.5*\cubesize,\cubesize) circle (\circlesize) node[nodestyle,anchor=east] {$E_z$};
+	\draw[bulle] (\cubesize,0.5*\cubesize,\cubesize) circle (\circlesize) node[nodestyle,anchor=west] {$E_z$};
+	\draw[bulle] (0,0.5*\cubesize,0) circle (\circlesize) node[nodestyle,anchor=east] {$E_z$};
+	\draw[bulle] (\cubesize,0.5*\cubesize,0) circle (\circlesize) node[nodestyle,anchor=west] {$E_z$};
+	\draw[bulle] (0,0,0.5*\cubesize) circle (\circlesize) node[nodestyle,anchor=east] {$E_x$};
+	\draw[bulle] (\cubesize,0,0.5*\cubesize) circle (\circlesize) node[nodestyle,anchor=west] {$E_x$};
+	\draw[bulle] (0,\cubesize,0.5*\cubesize) circle (\circlesize) node[nodestyle,anchor=east] {$E_x$};
+	\draw[bulle] (\cubesize,\cubesize,0.5*\cubesize) circle (\circlesize) node[nodestyle,anchor=west] {$E_x$};
+	\draw[bulle] (0,0.5*\cubesize,0.5*\cubesize) circle (\circlesize) node[nodestyle,anchor=east] {$H_y$};
+	\draw[bulle] (\cubesize,0.5*\cubesize,0.5*\cubesize) circle (\circlesize) node[nodestyle,anchor=west] {$H_y$};
+	\draw[bulle] (0.5*\cubesize,0,0.5*\cubesize) circle (\circlesize) node[nodestyle,anchor=north] {$H_z$};
+	\draw[bulle] (0.5*\cubesize,\cubesize,0.5*\cubesize) circle (\circlesize) node[nodestyle,anchor=south] {$H_z$};
+	\draw[bulle] (0.5*\cubesize,0.5*\cubesize,\cubesize) circle (\circlesize) node[nodestyle,anchor=north east] {$H_x$};
+	\draw[bulle] (0.5*\cubesize,0.5*\cubesize,0) circle (\circlesize) node[nodestyle,anchor=north east] {$H_x$};
+	
+\end{tikzpicture}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\caption[Staggered unknowns discretization in a Yee cell]{\textbf{Staggered unknowns discretization in a Yee cell.} The $\V{H}$ field components are on the center of the faces, while the $\V{E}$ ones are on the center of the edges.}
+\label{fig:yee_cell}
+\end{figure}
