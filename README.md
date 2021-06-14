@@ -8,7 +8,7 @@ They are for everyone to use/modify within the boundaries of academic work/publi
 ### CFD
 
 <p align="center">
-  <img width="800" alt="" src="https://user-images.githubusercontent.com/44053700/113163245-43eb7a00-9240-11eb-9a70-ce833ba74e0f.jpg">
+  <a href="https://github.com/jviquerat/latex_recipes/blob/master/cfd/turek/turek.tex"><img width="800" alt="" src="https://user-images.githubusercontent.com/44053700/113163245-43eb7a00-9240-11eb-9a70-ce833ba74e0f.jpg"></a>
 </p>
 
 ### Neural networks
