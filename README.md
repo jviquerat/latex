@@ -24,5 +24,6 @@ They are for everyone to use/modify within the boundaries of academic work/publi
 ## Templates
 
 <p align="center">
-  <a href="https://github.com/jviquerat/latex_recipes/blob/master/templates/letter/letter.tex"><img width="400" alt="" src="https://user-images.githubusercontent.com/44053700/113108793-a7a48180-9205-11eb-826e-b4514c8b542f.jpg"></a>
+  <a href="https://github.com/jviquerat/latex_recipes/blob/master/templates/letter/letter.tex"><img height="400" alt="" src="https://user-images.githubusercontent.com/44053700/113108793-a7a48180-9205-11eb-826e-b4514c8b542f.jpg"></a>
+  <a href="https://github.com/jviquerat/latex_recipes/blob/thesis/templates/thesis/main.tex"><img height="400" alt="" src="https://user-images.githubusercontent.com/44053700/121859512-128b3200-ccf8-11eb-92c2-fd8612d4392f.jpg"></a>
 </p>

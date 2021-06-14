@@ -1,0 +1,36 @@
+\tdplotsetmaincoords{0}{90}
+
+\centering
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tikzpicture}[scale=1.1]
+%
+	\draw[draw=none] (-0.2,-0.2) rectangle (3.2,3.2);		
+%
+	\def\eps{0.08}
+	\fill[blue4] (0,0) rectangle (3,3);
+	\foreach \x in {0,...,2} {
+		\foreach \y in {0,...,2}{
+			\draw[] (\x,\y,0) -- (\x+1,\y,0);
+			\draw[] (\x,\y,0) -- (\x, \y+1,0);
+			\draw[] (\x,\y+1,0) -- (\x+1,\y,0);
+			\filldraw[fill=orange1] (\x+\eps,\y+\eps,0) circle (0.06);
+			\filldraw[fill=orange1] (\x+1-2.4*\eps,\y+\eps,0) circle (0.06);
+			\filldraw[fill=orange1] (\x+\eps,\y+1-2.4*\eps,0) circle (0.06);
+			\filldraw[fill=orange1] (\x+1-\eps,\y+1-\eps,0) circle (0.06);
+		}
+	}
+	\foreach \x in {1,...,3} {
+		\foreach \y in {0,...,2}{
+			\draw[] (\x,\y,0) -- (\x, \y+1,0);
+			\filldraw[fill=orange1] (\x-\eps,\y+2.4*\eps,0) circle (0.06);
+		}
+	}
+	\foreach \x in {0,...,2} {
+		\foreach \y in {1,...,3}{
+			\draw[] (\x,\y,0) -- (\x+1, \y,0);
+			\filldraw[fill=orange1] (\x+2.4*\eps,\y-\eps,0) circle (0.06);
+		}
+	}
+	
+\end{tikzpicture}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
