@@ -17,8 +17,8 @@ They are for everyone to use/modify within the boundaries of academic work/publi
 ## Plottings
 
 <p align="center">
-  <a href="https://github.com/jviquerat/latex_recipes/blob/master/plottings/maths/rosenbrock_function/rosenbrock_function.tex"><img height="200" alt="" src="https://user-images.githubusercontent.com/44053700/114903812-75a33a00-9e17-11eb-8e34-33b3d3e7c6f1.jpg"></a>
-  <a href="https://github.com/jviquerat/latex_recipes/blob/master/plottings/misc/cfef/cfef.tex"><img height="200" alt="" src="https://user-images.githubusercontent.com/44053700/121852838-537f4880-ccf0-11eb-845a-0db86008a0db.jpg"></a>
+  <a href="https://github.com/jviquerat/latex_recipes/blob/master/plottings/maths/rosenbrock_function/rosenbrock_function.tex"><img height="300" alt="" src="https://user-images.githubusercontent.com/44053700/114903812-75a33a00-9e17-11eb-8e34-33b3d3e7c6f1.jpg"></a>
+  <a href="https://github.com/jviquerat/latex_recipes/blob/master/plottings/misc/cfef/cfef.tex"><img height="300" alt="" src="https://user-images.githubusercontent.com/44053700/121852838-537f4880-ccf0-11eb-845a-0db86008a0db.jpg"></a>
 </p>
 
 ## Templates
