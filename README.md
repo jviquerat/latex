@@ -29,6 +29,7 @@ They are for everyone to use/modify within the boundaries of academic work/publi
 <p align="center">
   <a href="plottings/data/lorenz_control.tex"><img height="300" alt="" src="plottings/data/lorenz_control/lorenz_control.jpg"></a>
 </p>
+
 ## Templates
 
 <p align="center">
