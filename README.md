@@ -6,7 +6,7 @@ They are for everyone to use/modify within the boundaries of academic work/publi
 ## Figures
 
 <p align="center">
-  <a href="figures/cfd/turek/turek.tex"><img height="200" alt="" src="figures/cfd/turek/turek.jpg"></a>
+  <a href="figures/physics/turek/turek.tex"><img height="200" alt="" src="figures/physics/turek/turek.jpg"></a>
   <a href="figures/neural_networks/simple_network/simple_network.tex"><img height="200" alt="" src="figures/neural_networks/simple_network/simple_network.jpg"></a>
 </p>
  
@@ -16,6 +16,7 @@ They are for everyone to use/modify within the boundaries of academic work/publi
 
 <p align="center">
   <a href="figures/schematics/workflow/workflow.tex"><img height="200" alt="" src="figures/schematics/workflow/workflow.jpg"></a>
+  <a href="figures/physics/lorenz/lorenz.tex"><img height="200" alt="" src="figures/physics/lorenz/lorenz.jpg"></a>
 </p>
 
 ## Plottings
