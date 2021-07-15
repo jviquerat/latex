@@ -1,0 +1,28 @@
+\documentclass[tikz, border = 1 cm]{standalone}
+
+%%%%%%%%%%%%%%
+\usepackage{tikz}
+\usepackage{pgfplots}
+%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%
+\definecolor{bluegray1}{RGB}{0,127,167}
+\definecolor{orange1}{RGB}{255,126,46}
+%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%
+\begin{document}
+
+%%%%%%%%%%%%%%
+\begin{tikzpicture}
+	\begin{axis}[	scale=1, hide axis,
+				xmin=-20, xmax=20, ymin=-20, ymax=20, zmin=0, zmax=45]
+		\addplot3[mark=none, mesh, smooth, color=bluegray1] 	table [x index=1, y index=2, z index=3] {lorenz_stabilizer_plot_init.dat}; 
+		\addplot3[mark=none, mesh, smooth, color=orange1] 	table [x index=1, y index=2, z index=3] {lorenz_stabilizer_plot_end.dat }; 
+	\end{axis}
+\end{tikzpicture}
+%%%%%%%%%%%%%%
+
+\end{document}
