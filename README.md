@@ -6,16 +6,16 @@ They are for everyone to use/modify within the boundaries of academic work/publi
 ## Figures
 
 <p align="center">
-  <a href="figures/cfd/turek/turek.tex"><img height="200" alt="" src="figures/cfd/turek/turek.jpeg"></a>
-  <a href="figures/neural_networks/simple_network/simple_network.tex"><img height="200" alt="" src="figures/neural_networks/simple_network/simple_network.jpeg"></a>
+  <a href="figures/cfd/turek/turek.tex"><img height="200" alt="" src="figures/cfd/turek/turek.jpg"></a>
+  <a href="figures/neural_networks/simple_network/simple_network.tex"><img height="200" alt="" src="figures/neural_networks/simple_network/simple_network.jpg"></a>
 </p>
  
 <p align="center">
-  <a href="figures/neural_networks/large_network/large_network.tex"><img height="200" alt="" src="figures/neural_networks/large_network/large_network.jpeg"></a>
+  <a href="figures/neural_networks/large_network/large_network.tex"><img height="200" alt="" src="figures/neural_networks/large_network/large_network.jpg"></a>
 </p>
 
 <p align="center">
-  <a href="figures/schematics/workflow/workflow.tex"><img height="200" alt="" src="figures/schematics/workflow/workflow.jpeg"></a>
+  <a href="figures/schematics/workflow/workflow.tex"><img height="200" alt="" src="figures/schematics/workflow/workflow.jpg"></a>
 </p>
 
 ## Plottings
