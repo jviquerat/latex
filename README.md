@@ -6,12 +6,16 @@ They are for everyone to use/modify within the boundaries of academic work/publi
 ## Figures
 
 <p align="center">
-  <a href="https://github.com/jviquerat/latex_recipes/blob/master/figures/cfd/turek/turek.tex"><img height="200" alt="" src="https://user-images.githubusercontent.com/44053700/113163245-43eb7a00-9240-11eb-9a70-ce833ba74e0f.jpg"></a>
-  <a href="https://github.com/jviquerat/latex_recipes/blob/master/figures/neural_networks/simple_network/simple_network.tex"><img height="200" alt="" src="https://user-images.githubusercontent.com/44053700/113108146-f6055080-9204-11eb-9bd7-a678ed60adff.jpg"></a>
+  <a href="figures/cfd/turek/turek.tex"><img height="200" alt="" src="figures/cfd/turek/turek.jpeg"></a>
+  <a href="figures/neural_networks/simple_network/simple_network.tex"><img height="200" alt="" src="figures/neural_networks/simple_network/simple_network.jpeg"></a>
 </p>
  
 <p align="center">
-  <a href="https://github.com/jviquerat/latex_recipes/blob/master/figures/neural_networks/large_network/large_network.tex"><img height="200" alt="" src="https://user-images.githubusercontent.com/44053700/113161848-0d612f80-923f-11eb-8009-d2985adcb344.jpg"></a>
+  <a href="figures/neural_networks/large_network/large_network.tex"><img height="200" alt="" src="figures/neural_networks/large_network/large_network.jpeg"></a>
+</p>
+
+<p align="center">
+  <a href="figures/schematics/workflow/workflow.tex"><img height="200" alt="" src="figures/schematics/workflow/workflow.jpeg"></a>
 </p>
 
 ## Plottings
