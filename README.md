@@ -35,5 +35,8 @@ They are for everyone to use/modify within the boundaries of academic work/publi
 <p align="center">
   <a href="templates/letter/letter.tex"><img height="400" alt="" src="templates/letter/letter.jpg"></a>
   <a href="templates/thesis/main.tex"><img height="400" alt="" src="templates/thesis/thesis.jpg"></a>
+</p>
+
+<p align="center">
   <a href="templates/beamer/beamer.tex"><img height="400" alt="" src="templates/beamer/beamer.jpg"></a>
 </p>
