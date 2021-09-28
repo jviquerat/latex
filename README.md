@@ -40,3 +40,9 @@ They are for everyone to use/modify within the boundaries of academic work/publi
 <p align="center">
   <a href="templates/beamer/beamer.tex"><img height="400" alt="" src="templates/beamer/beamer.jpg"></a>
 </p>
+
+## Others
+
+<p align="center">
+  <a href="templates/others/code/code.tex"><img height="150" alt="" src="templates/others/code/code.jpg"></a>
+</p>

@@ -8,3 +8,5 @@
 *.DS_Store
 *.pgf-plot.gnuplot
 *.pgf-plot.table
+*.vrb
+*_minted-code*
