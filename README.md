@@ -44,5 +44,5 @@ They are for everyone to use/modify within the boundaries of academic work/publi
 ## Others
 
 <p align="center">
-  <a href="templates/others/code/code.tex"><img height="150" alt="" src="templates/others/code/code.jpg"></a>
+  <a href="others/code/code.tex"><img height="100" alt="" src="others/code/code.jpg"></a>
 </p>
