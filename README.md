@@ -50,3 +50,7 @@ They are for everyone to use/modify within the boundaries of academic work/publi
 <p align="center">
   <a href="others/code/code.tex"><img height="100" alt="" src="others/code/code.jpg"></a>
 </p>
+
+<p align="center">
+  <a href="others/git/git.tex"><img height="100" alt="" src="others/git/git.jpg"></a>
+</p>
