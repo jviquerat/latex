@@ -25,5 +25,5 @@ They are for everyone to use/modify within the boundaries of academic work/publi
 | ![letter](data/letter/letter.jpg)                       | ![thesis](data/thesis/thesis.jpg)                       |
 | [**`beamer.tex`**](data/beamer/beamer.tex)              | [**`rosenbrock.tex`**](data/rosenbrock/rosenbrock.tex)  |
 | ![beamer](data/beamer/beamer.jpg)                       | ![rosenbrock](data/rosenbrock/rosenbrock.jpg)           |
-| [**`cfef.tex`**](data/cfef/cfef.tex)                    |                 |
-| ![cfef](data/cfef/cfef.jpg)                             |                 |
+| [**`cfef.tex`**](data/cfef/cfef.tex)                    | [**`oblique.tex`**](data/oblique/oblique.tex)           |
+| ![cfef](data/cfef/cfef.jpg)                             | ![oblique](data/oblique/oblique.jpg)                    |
