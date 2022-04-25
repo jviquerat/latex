@@ -25,3 +25,5 @@ They are for everyone to use/modify within the boundaries of academic work/publi
 | ![letter](data/letter/letter.jpg)                       | ![thesis](data/thesis/thesis.jpg)                       |
 | [**`beamer.tex`**](data/beamer/beamer.tex)              | [**`cfef.tex`**](data/cfef/cfef.tex)                    |
 | ![beamer](data/beamer/beamer.jpg)                       | ![cfef](data/cfef/cfef.jpg)                             |
+| [**`timeline.tex`**](data/timeline/timeline.tex)        |                 |
+| ![timeline](data/timeline/timeline.jpg)                 |                 |

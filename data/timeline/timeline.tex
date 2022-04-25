@@ -1,0 +1,204 @@
+\documentclass[tikz, border = 1 cm]{standalone}
+
+%%%%%%%%%%%%%%
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes}
+%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%
+\def\sc{0.85}
+\def\papsize{0.176}
+\def\linesize{1.5*\papsize}
+\def\timelinelength{18}
+\def\timelineheight{9*\linesize}
+\def\yearlength{2.895}
+\def\ctyearlength{3}
+\def\yearheight{0.3}
+\def\yearbandheight{0.1*\yearheight}
+
+\tikzset{node distance=0.2cm and 0.1cm}
+
+\tikzstyle{timeline}= 	[rectangle, draw=none, fill=black, opacity=0.2,
+				text width=\timelinelength cm, minimum height=\timelineheight cm, text centered,
+				inner sep=0pt, outer sep=0pt]
+\tikzstyle{border}=	[very thick, draw=black, opacity=0.1]
+\tikzstyle{year}=	[text width=\yearlength cm, minimum height=\yearheight cm, text centered, 
+				inner sep=0pt, outer sep=0pt, font=\footnotesize]
+\tikzstyle{yearband}=	[rectangle, minimum width=\yearlength cm, minimum height=\yearbandheight cm, 
+				inner sep=0pt, outer sep=0pt, fill=black, opacity=0.5]
+\tikzstyle{line}=		[yearband, minimum width=\timelinelength cm, opacity=0.2]
+\tikzstyle{lr}=		[inner sep=0pt, outer sep=0pt]
+\tikzstyle{paper}=	[circle, fill=black, draw=black, inner sep=0pt, minimum size=\papsize cm]
+\tikzstyle{previous}=	[regular polygon, regular polygon sides=4, fill=black, draw=black, inner sep=0pt, 
+				minimum size=1.1*\papsize cm]
+\tikzstyle{drag}=	[paper, fill=cyan]
+\tikzstyle{pdrag}=	[previous, fill=cyan]
+\tikzstyle{heat}=	[paper, fill=red]
+\tikzstyle{shapeopt}=	[paper, fill=violet]
+\tikzstyle{exp}=		[paper, fill=magenta]
+\tikzstyle{micro}=	[paper, fill=orange]
+\tikzstyle{pmicro}=	[previous, fill=orange]
+\tikzstyle{swimming}=	[paper, fill=green]
+\tikzstyle{pswimming}=	[previous, fill=green]
+\tikzstyle{review}=	[paper, fill=pink]
+\tikzstyle{other}=	[paper, fill=teal]
+\tikzstyle{pother}=	[previous, fill=teal]
+\tikzstyle{legend}=	[font=\footnotesize]
+%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%
+\begin{document}
+
+%%%%%%%%%%%%%%
+\begin{tikzpicture}[scale=\sc, every node/.style={scale=\sc}]
+
+	%%% main timeline
+	\node[timeline] 	(timeline) at (0.5*\timelinelength,0) {};
+	\draw[border] 	($(timeline.north west) + (0pt,1pt)$) -- ($(timeline.north east) + (0pt,1pt)$);
+	\draw[border] 	($(timeline.south west) + (0pt,-1pt)$) -- ($(timeline.south east) + (0pt,-1pt)$);
+
+	%%% years
+	\node[year, anchor=north west] (2016) at ($(timeline.south west) + (0pt,-5pt)$) {2016};
+	\node[year, right=of 2016] (2017) {2017};
+	\node[year, right=of 2017] (2018) {2018};
+	\node[year, right=of 2018] (2019) {2019};
+	\node[year, right=of 2019] (2020) {2020};
+	\node[year, right=of 2020] (2021) {2021};
+	
+	%%% yearbands
+	\node[yearband] at ($(2016.north) + (0pt,2pt)$) {};
+	\node[yearband] at ($(2017.north) + (0pt,2pt)$) {};
+	\node[yearband] at ($(2018.north) + (0pt,2pt)$) {};
+	\node[yearband] at ($(2019.north) + (0pt,2pt)$) {};
+	\node[yearband] at ($(2020.north) + (0pt,2pt)$) {};
+	\node[yearband] at ($(2021.north) + (0pt,2pt)$) {};
+	
+	%%% horizontal lines
+	\node[lr] (bot_left) at (timeline.west |- timeline.south) {};
+	\node[lr] (l_l1) at ($(bot_left) + (0pt, 1*\linesize cm)$) {};
+	\node[lr] (l_l2) at ($(bot_left) + (0pt, 2*\linesize cm)$) {};
+	\node[lr] (l_l3) at ($(bot_left) + (0pt, 3*\linesize cm)$) {};
+	\node[lr] (l_l4) at ($(bot_left) + (0pt, 4*\linesize cm)$) {};
+	\node[lr] (l_l5) at ($(bot_left) + (0pt, 5*\linesize cm)$) {};
+	\node[lr] (l_l6) at ($(bot_left) + (0pt, 6*\linesize cm)$) {};
+	\node[lr] (l_l7) at ($(bot_left) + (0pt, 7*\linesize cm)$) {};
+	\node[lr] (l_l8) at ($(bot_left) + (0pt, 8*\linesize cm)$) {};
+
+	\node[lr] (bot_right) at (timeline.east |- timeline.south) {};
+	\node[lr] (r_l1) at ($(bot_right) + (0pt, 1*\linesize cm)$) {};
+	\node[lr] (r_l2) at ($(bot_right) + (0pt, 2*\linesize cm)$) {};
+	\node[lr] (r_l3) at ($(bot_right) + (0pt, 3*\linesize cm)$) {};
+	\node[lr] (r_l4) at ($(bot_right) + (0pt, 4*\linesize cm)$) {};
+	\node[lr] (r_l5) at ($(bot_right) + (0pt, 5*\linesize cm)$) {};
+	\node[lr] (r_l6) at ($(bot_right) + (0pt, 6*\linesize cm)$) {};
+	\node[lr] (r_l7) at ($(bot_right) + (0pt, 7*\linesize cm)$) {};
+	\node[lr] (r_l8) at ($(bot_right) + (0pt, 8*\linesize cm)$) {};
+	
+	\draw[line] (l_l1) -- (r_l1);
+	\draw[line] (l_l2) -- (r_l2);
+	\draw[line] (l_l3) -- (r_l3);
+	\draw[line] (l_l4) -- (r_l4);
+	\draw[line] (l_l5) -- (r_l5);
+	\draw[line] (l_l6) -- (r_l6);
+	\draw[line] (l_l7) -- (r_l7);
+	\draw[line] (l_l8) -- (r_l8);
+	
+	%%% drag papers
+	\node (p) at (2018.west |- l_l1) {};
+	\node[drag] at ($(p) + (0.47*\yearlength,0 pt)$) {}; % Koizumi 2018
+	\node[pdrag] at ($(p) + (0.64*\yearlength,0 pt)$) {}; % Rabault 2018
+	\node (p) at (2019.west |- l_l1) {};
+	\node[pdrag] at ($(p) + (0.48*\yearlength,0 pt)$) {}; % Rabault 2019
+	\node (p) at (2020.west |- l_l1) {};
+	\node[drag] at ($(p) + (0.31*\yearlength,0 pt)$) {}; % Tang 2020
+	\node[drag] at ($(p) + (0.33*\yearlength,0 pt)$) {}; % Xu 2020
+	\node[drag] at ($(p) + (0.35*\yearlength,0 pt)$) {}; % Holm 2020
+	\node[drag] at ($(p) + (0.42*\yearlength,0 pt)$) {}; % Ghraieb 2020
+	\node[drag] at ($(p) + (0.46*\yearlength,0 pt)$) {}; % Ren 2020
+	\node[drag] at ($(p) + (0.48*\yearlength,0 pt)$) {}; % Paris 2020
+	\node[drag] at ($(p) + (0.78*\yearlength,0 pt)$) {}; % Tokarev 2020
+	\node[drag] at ($(p) + (0.95*\yearlength,0 pt)$) {}; % Elhawary 2020
+	\node (p) at (2021.west |- l_l1) {};
+	\node[drag] at ($(p) + (0.44*\yearlength,0 pt)$) {}; % Qin 2021
+	
+	%%% heat papers
+	\node (p) at (2020.west |- l_l2) {};
+	\node[heat] at ($(p) + (0.25*\yearlength,0 pt)$) {}; % Beintema 2020
+	\node[heat] at ($(p) + (0.90*\yearlength,0 pt)$) {}; % Hachem 2020
+		
+	%%% exp papers
+	\node (p) at (2020.west |- l_l3) {};
+	\node[exp] at ($(p) + (0.18*\yearlength,0 pt)$) {}; % Fan 2020
+	\node[exp] at ($(p) + (0.55*\yearlength,0 pt)$) {}; % Shimomura 2020
+	
+	%%% other papers
+	\node (p) at (2018.west |- l_l4) {};
+	\node[pother] at ($(p) + (0.49*\yearlength,0 pt)$) {}; % Ma 2018
+	\node (p) at (2019.west |- l_l4) {};
+	\node[other] at ($(p) + (0.79*\yearlength,0 pt)$) {}; % Belus 2019
+	\node (p) at (2020.west |- l_l4) {};
+	\node[other] at ($(p) + (0.38*\yearlength,0 pt)$) {}; % Novati 2020
+	\node (p) at (2021.west |- l_l4) {};
+	\node[other] at ($(p) + (0.06*\yearlength,0 pt)$) {}; % Xie 2021
+	
+	%%% microfluidics papers
+	\node (p) at (2018.west |- l_l5) {};
+	\node[pmicro] at ($(p) + (0.66*\yearlength,0 pt)$) {}; % Dressler 2018
+	\node[micro] at ($(p) + (0.90*\yearlength,0 pt)$) {}; % Lee 2018
+	
+	%%% swimming papers
+	\node (p) at (2016.west |- l_l6) {};
+	\node[pswimming] at ($(p) + (0.78*\yearlength,0 pt)$) {}; % Novati 2016
+	\node (p) at (2018.west |- l_l6) {};
+	\node[pswimming] at ($(p) + (0.10*\yearlength,0 pt)$) {}; % Verma 2018
+	\node (p) at (2021.west |- l_l6) {};
+	\node[swimming] at ($(p) + (0.05*\yearlength,0 pt)$) {}; % Zhu 2021
+	
+	%%% shape papers
+	\node (p) at (2019.west |- l_l7) {};
+	\node[shapeopt] at ($(p) + (0.16*\yearlength,0 pt)$) {}; % Yan 2019
+	\node[shapeopt] at ($(p) + (0.64*\yearlength,0 pt)$) {}; % Viquerat 2019
+	\node (p) at (2019.west |- l_l7) {};
+	\node[shapeopt] at ($(p) + (0.33*\yearlength,0 pt)$) {}; % Yonekura 2019
+	\node (p) at (2020.west |- l_l7) {};
+	\node[shapeopt] at ($(p) + (0.98*\yearlength,0 pt)$) {}; % Qin 2020
+	
+	%%% review papers
+	\node (p) at (2019.west |- l_l8) {};
+	\node[review] at ($(p) + (0.61*\yearlength,0 pt)$) {}; % Garnier 2021
+	\node (p) at (2020.west |- l_l8) {};
+	\node[review] at ($(p) + (0.02*\yearlength,0 pt)$) {}; % Rabault 2020
+	
+	%%% legend
+	\node[drag] (drag_legend) at ($(timeline.north west) + (5pt, 10 pt)$) {};
+	\node[heat, above=of drag_legend] (heat_legend) {};
+	
+	\node[legend, right=of drag_legend] (drag_legend_txt) {Drag reduction};
+	\node[legend, right=of heat_legend] (heat_legend_txt) {Heat transfer};
+	
+	\node[exp, right=of heat_legend_txt, xshift=15pt] (exp_legend) {};
+	\node[other, below=of exp_legend] (other_legend) {};
+	
+	\node[legend, right=of exp_legend] (exp_legend_txt) {Experimental};
+	\node[legend, right=of other_legend] (other_legend_txt) {Others};
+	
+	\node[micro, right=of exp_legend_txt, xshift=15pt] (micro_legend) {};
+	\node[swimming, below=of micro_legend] (swimming_legend) {};
+	
+	\node[legend, right=of micro_legend] (micro_legend_txt) {Microfluidics};
+	\node[legend, right=of swimming_legend] (swimming_legend_txt) {Swimming};
+	
+	\node[review, right=of micro_legend_txt, xshift=15pt] (review_legend) {};
+	\node[shapeopt, below=of review_legend] (shapeopt_legend) {};
+	
+	\node[legend, right=of review_legend] (review_legend_txt) {Review};
+	\node[legend, right=of shapeopt_legend] (shapeopt_legend_txt) {Shape optimization};
+	    
+\end{tikzpicture}
+%%%%%%%%%%%%%%
+
+\end{document}
