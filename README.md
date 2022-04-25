@@ -19,11 +19,11 @@ They are for everyone to use/modify within the boundaries of academic work/publi
 | ![workflow](data/workflow/workflow.jpg)                 | ![lorenz](data/lorenz/lorenz.jpg)                       |
 | [**`git.tex`**](data/git/git.tex)                       | [**`minted.tex`**](data/minted/minted.tex)              |
 | ![git](data/git/git.jpg)                                | ![minted](data/minted/minted.jpg)                       |
-| [**`rosenbrock.tex`**](data/rosenbrock/rosenbrock.tex)  | [**`control.tex`**](data/control/control.tex)           |
-| ![rosenbrock](data/rosenbrock/rosenbrock.jpg)           | ![control](data/control/control.jpg)                    |
+| [**`timeline.tex`**](data/timeline/timeline.tex)        | [**`control.tex`**](data/control/control.tex)           |
+| ![timeline](data/timeline/timeline.jpg)                 | ![control](data/control/control.jpg)                    |
 | [**`letter.tex`**](data/letter/letter.tex)              | [**`thesis.tex`**](data/thesis/thesis.tex)              |
 | ![letter](data/letter/letter.jpg)                       | ![thesis](data/thesis/thesis.jpg)                       |
 | [**`beamer.tex`**](data/beamer/beamer.tex)              | [**`cfef.tex`**](data/cfef/cfef.tex)                    |
 | ![beamer](data/beamer/beamer.jpg)                       | ![cfef](data/cfef/cfef.jpg)                             |
-| [**`timeline.tex`**](data/timeline/timeline.tex)        |                 |
-| ![timeline](data/timeline/timeline.jpg)                 |                 |
+| [**`rosenbrock.tex`**](data/rosenbrock/rosenbrock.tex)  |                 |
+| ![rosenbrock](data/rosenbrock/rosenbrock.jpg)           |                 |
