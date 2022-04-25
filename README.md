@@ -23,7 +23,7 @@ They are for everyone to use/modify within the boundaries of academic work/publi
 | ![timeline](data/timeline/timeline.jpg)                 | ![control](data/control/control.jpg)                    |
 | [**`letter.tex`**](data/letter/letter.tex)              | [**`thesis.tex`**](data/thesis/thesis.tex)              |
 | ![letter](data/letter/letter.jpg)                       | ![thesis](data/thesis/thesis.jpg)                       |
-| [**`beamer.tex`**](data/beamer/beamer.tex)              | [**`cfef.tex`**](data/cfef/cfef.tex)                    |
-| ![beamer](data/beamer/beamer.jpg)                       | ![cfef](data/cfef/cfef.jpg)                             |
-| [**`rosenbrock.tex`**](data/rosenbrock/rosenbrock.tex)  |                 |
-| ![rosenbrock](data/rosenbrock/rosenbrock.jpg)           |                 |
+| [**`beamer.tex`**](data/beamer/beamer.tex)              | [**`rosenbrock.tex`**](data/rosenbrock/rosenbrock.tex)  |
+| ![beamer](data/beamer/beamer.jpg)                       | ![rosenbrock](data/rosenbrock/rosenbrock.jpg)           |
+| [**`cfef.tex`**](data/cfef/cfef.tex)                    |                 |
+| ![cfef](data/cfef/cfef.jpg)                             |                 |
