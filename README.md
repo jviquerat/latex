@@ -27,3 +27,5 @@ They are for everyone to use/modify within the boundaries of academic work/publi
 | ![beamer](data/beamer/beamer.jpg)                       | ![rosenbrock](data/rosenbrock/rosenbrock.jpg)           |
 | [**`cfef.tex`**](data/cfef/cfef.tex)                    | [**`oblique.tex`**](data/oblique/oblique.tex)           |
 | ![cfef](data/cfef/cfef.jpg)                             | ![oblique](data/oblique/oblique.jpg)                    |
+| [**`kdtree.tex`**](data/kdtree/kdtree.tex)              | |
+| ![kdtree](data/kdtree/kdtree.jpg)                             | |
