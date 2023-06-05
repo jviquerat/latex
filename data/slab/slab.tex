@@ -1,0 +1,143 @@
+\documentclass[tikz, border = 1 cm]{standalone}
+
+%%%%%%%%%%%%%%
+\usepackage{bm}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%
+\definecolor{orange1}{RGB}{255,126,46}
+\definecolor{orange2}{RGB}{255,164,108}
+\definecolor{orange3}{RGB}{255,190,150}
+\definecolor{bluegray2}{RGB}{76,165,193}
+\definecolor{gray4}	{RGB}{201,203,206}
+%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%
+\begin{document}
+
+%%%%%%%%%%%%%%
+\tdplotsetmaincoords{60}{25}
+\begin{tikzpicture}[	tdplot_main_coords,scale=0.5,
+				face/.style={fill=bluegray2,opacity=0.5},
+				edge/.style={thick,dash pattern=on 1pt},
+				slab/.style={fill=gray4,draw=black,ultra thin},
+				slabdraw/.style={draw=black,thick},
+				arrow/.style={ultra thick,->,orange1,-stealth},
+				arrow1/.style={ultra thick,->,orange2,-stealth},
+				arrow2/.style={ultra thick,->,orange3,-stealth},
+				arrowbasis/.style={fill=orange1,draw=black,ultra thin,dash pattern=on 0.5 pt}]
+
+	% Sizes
+	\def\csize{4.0}
+	\def\cxsize{7.0}
+	\def\ssize{4.0}
+	\def\axissize{1.0}
+	\def\arrowsize{4.0}
+	\def\zdsize{6.5}
+	
+	% Points for cube edges
+	\coordinate (p1) at (0,-\csize,-\csize);
+	\coordinate (p2) at (0,-\csize,\csize);
+	\coordinate (p3) at (0,\csize,\csize);
+	\coordinate (p4) at (0,\csize,-\csize);
+	\coordinate (p5) at (2*\cxsize+\ssize,-\csize,-\csize);
+	\coordinate (p6) at (2*\cxsize+\ssize,-\csize,\csize);
+	\coordinate (p7) at (2*\cxsize+\ssize,\csize,\csize);
+	\coordinate (p8) at (2*\cxsize+\ssize,\csize,-\csize);
+
+	% Points for slab
+	\coordinate (p11) at (\cxsize,-\csize,-\csize);
+	\coordinate (p12) at (\cxsize,-\csize,\csize);
+	\coordinate (p13) at (\cxsize,\csize,\csize);
+	\coordinate (p14) at (\cxsize,\csize,-\csize);
+	\coordinate (p15) at (\cxsize+\ssize,-\csize,-\csize);
+	\coordinate (p16) at (\cxsize+\ssize,-\csize,\csize);
+	\coordinate (p17) at (\cxsize+\ssize,\csize,\csize);
+	\coordinate (p18) at (\cxsize+\ssize,\csize,-\csize);
+
+	% Points for axes
+	\coordinate (px) at ($ (p1) + (\axissize,0,0) $);
+	\coordinate (py) at ($ (p1) + (0,1.5*\axissize,0) $);
+	\coordinate (pz) at ($ (p1) + (0,0,\axissize) $);
+
+	% Incident wave
+	\coordinate (p0) at ($ 0.25*(p1) + 0.25*(p2) + 0.25*(p3) + 0.25*(p4)$);
+	\fill[face] (p1) -- (p2) -- (p3) -- (p4) -- cycle;
+	\filldraw[arrowbasis] (p0) circle[x={(0.7cm,0.3cm)},y={(0cm,1cm)},x radius=0.2,y radius=0.2];
+	\draw[arrow] (p0) -- ($ (p0) + (\arrowsize,0,0) $);
+
+	% Cube edges start
+	\draw[edge] (p1) -- (p2) -- (p3) -- (p4) -- cycle;
+	\draw[edge] (p5) -- (p6) -- (p7) -- (p8) -- cycle;
+	\draw[edge] (p1) -- (p5);
+	\draw[edge] (p3) -- (p7);
+	\draw[edge] (p4) -- (p8);
+
+	% Slab faces
+	\filldraw[slab] (p12) -- (p13) -- (p17) -- (p16) -- cycle;
+	\filldraw[slab] (p12) -- (p16) -- (p15) -- (p11) -- cycle;
+	\filldraw[slab] (p15) -- (p16) -- (p17) -- (p18) -- cycle;
+
+	% Cube edges end
+	\draw[edge] (p2) -- (p6);
+
+	% Axes
+	\draw[->,thick] (p1) -- (px) node[anchor=north] {$z$}; %x
+	\draw[->,thick] (p1) -- (py) node[anchor=west] {$x$}; %y
+	\draw[->,thick] (p1) -- (pz) node[anchor=east] {$y$}; %z
+
+	% Size of slab
+	\coordinate (pf1) at ($(p13) + (0,0.2,0.2)$);
+	\coordinate (pf2) at ($(p17) + (0,0.2,0.2)$);
+	\draw[<->,stealth-stealth,thick] (pf1) -- node[above,scale=1.2,pos=0.55] {$l$} (pf2);
+
+	% Materials
+	\coordinate (pt1) at ($.5*(p12) + .5*(p16)$);
+	\coordinate (pt2) at ($.5*(p13) + .5*(p17)$);
+	\path (pt1) -- node[sloped,scale=1.2,xslant=-0.5,yslant=0.05] {$(\epsilon_2, \mu_2)$} (pt2);
+
+	\coordinate (pt3) at ($.5*(p2) + .5*(p12)$);
+	\coordinate (pt4) at ($.5*(p3) + .5*(p13)$);
+	\path (pt3) -- node[sloped,scale=1.2,xslant=-0.5,yslant=0.05] {$(\epsilon_1, \mu_1)$} (pt4);
+
+	\coordinate (pt5) at ($.5*(p16) + .5*(p6)$);
+	\coordinate (pt6) at ($.5*(p17) + .5*(p7)$);
+	\path (pt5) -- node[sloped,scale=1.2,xslant=-0.5,yslant=0.05] {$(\epsilon_3, \mu_3)$} (pt6);
+
+	% Points for projection
+	\coordinate (pz1) at ($(p1) + (0,0,-\zdsize)$);
+	\coordinate (pz4) at ($(p4) + (0,0,-\zdsize)$);
+	\coordinate (pz5) at ($(p5) + (0,0,-\zdsize)$);
+	\coordinate (pz8) at ($(p8) + (0,0,-\zdsize)$);
+	\coordinate (pz11) at ($(p11) + (0,0,-\zdsize)$);
+	\coordinate (pz14) at ($(p14) + (0,0,-\zdsize)$);
+	\coordinate (pz15) at ($(p15) + (0,0,-\zdsize)$);
+	\coordinate (pz18) at ($(p18) + (0,0,-\zdsize)$);
+
+	% Edges on projection start
+	\draw[edge] (pz1) -- (pz5) -- (pz8) -- (pz4) -- cycle;
+	\filldraw[slab] (pz11) -- (pz15) -- (pz18) -- (pz14) -- cycle;
+
+	% Fields
+	\coordinate (pzz0) at ($(pz1) + (0,.5*\csize,0)$); % Incident field
+	\draw[arrow] (pzz0) -- node[sloped,above,black] {$\bm{E}_{inc}$} ($ (pzz0) + (\arrowsize,0,0) $); % Incident field
+	\coordinate (pzz2) at ($(pz11) + (0,\csize,0)$); % E_1
+	\draw[arrow1] (pzz2) -- node[sloped,above,black] {$\bm{E}_{1}$} ($ (pzz2) + (-.6*\arrowsize,0,0) $); % E_1
+	\coordinate (pzz1) at ($(pz11) + (0,\csize,0)$); % E_12
+	\draw[arrow1] (pzz1) -- node[sloped,below,black] {$\bm{E}_{12}$} ($ (pzz1) + (.8*\arrowsize,0,0) $); % E_12
+	\coordinate (pzz3) at ($(pz15) + (0,1.5*\csize,0)$); % E_122
+	\draw[arrow2] (pzz3) -- node[sloped,above,black] {$\bm{E}_{122}$} ($ (pzz3) + (-.6*\arrowsize,0,0) $); % E_122
+	\coordinate (pzz4) at ($(pz15) + (0,1.5*\csize,0)$); % E_123
+	\draw[arrow2] (pzz4) -- node[sloped,below,black] {$\bm{E}_{123}$} ($ (pzz4) + (.4*\arrowsize,0,0) $); % E_123
+		
+	% Edges on projection end
+	\draw[slabdraw] (pz11) -- (pz15) -- (pz18) -- (pz14) -- cycle;
+	    
+\end{tikzpicture}
+%%%%%%%%%%%%%%
+
+\end{document}
