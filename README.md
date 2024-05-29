@@ -31,3 +31,5 @@ They are for everyone to use/modify within the boundaries of academic work/publi
 | ![kdtree](data/kdtree/kdtree.jpg)                       | ![interface](data/interface/interface.jpg)              |
 | [**`maxwell.tex`**](data/maxwell/maxwell.tex)           | [**`slab.tex`**](data/slab/slab.tex)                    |
 | ![maxwell](data/maxwell/maxwell.jpg)                    | ![slab](data/slab/slab.jpg)                             |
+| [**`entity.tex`**](data/entity/entity.tex)              | |
+| ![entity](data/entity/entity.jpg)                       | |

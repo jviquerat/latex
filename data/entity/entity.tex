@@ -1,0 +1,147 @@
+\documentclass[tikz, border = 1 cm]{standalone}
+
+%%%%%%%%%%%%%%
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%
+\definecolor{blue2}		{RGB}{76,200,239}
+\definecolor{orange2}	{RGB}{255,164,108}
+\definecolor{purple2}		{RGB}{129,129,195}
+\definecolor{red2}		{RGB}{255,30,30}
+\definecolor{gray4}		{RGB}{201,203,206}
+%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%
+\def\vertexSize{10}
+\def\eltSize{5}
+\def\sc{0.7}
+%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%
+\tdplotsetmaincoords{70}{60}
+
+\tikzstyle{point}= 		[scale=\sc, circle, inner sep=0pt, thick, minimum width=1.5*\vertexSize, text width=1.2*\vertexSize, align=center, draw=black]
+\tikzstyle{vertex}=		[point, fill=blue2]
+\tikzstyle{edgevertex}=	[point, fill=orange2]
+\tikzstyle{facevertex}=	[point, fill=red2]
+\tikzstyle{cellvertex}=		[point, fill=purple2]
+\tikzstyle{edge}=		[draw=black, very thick]
+\tikzstyle{thinedge}=		[draw=black, ultra thin]
+\tikzstyle{edash}=		[dash pattern=on 2pt]
+\tikzstyle{face}=			[fill=gray4, fill opacity=0.5]
+%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%
+\begin{document}
+
+%%%%%%%%%%%%%%
+\begin{tikzpicture}
+
+	\begin{scope}[tdplot_main_coords] % Then apply the coordinates transform
+
+	% Coordinates
+	\coordinate (v0) at (0,			0,			0);
+	\coordinate (v1) at (\eltSize,		0,			0);
+	\coordinate (v2) at (\eltSize,		\eltSize,		0);
+	\coordinate (v3) at (0,			\eltSize,		0);
+	\coordinate (v4) at (0,			\eltSize,		\eltSize);
+	\coordinate (v5) at (\eltSize,		\eltSize,		\eltSize);
+	\coordinate (v6) at (\eltSize,		0,			\eltSize);
+	\coordinate (v7) at (0,			0,			\eltSize);
+	\coordinate (e0) at ($(v0)!0.5!(v1)$);
+	\coordinate (e1) at ($(v2)!0.5!(v3)$);
+	\coordinate (e2) at ($(v4)!0.5!(v5)$);
+	\coordinate (e3) at ($(v6)!0.5!(v7)$);
+	\coordinate (e4) at ($(v0)!0.5!(v3)$);
+	\coordinate (e5) at ($(v1)!0.5!(v2)$);
+	\coordinate (e6) at ($(v5)!0.5!(v6)$);
+	\coordinate (e7) at ($(v4)!0.5!(v7)$);
+	\coordinate (e8) at ($(v0)!0.5!(v7)$);
+	\coordinate (e9) at ($(v1)!0.5!(v6)$);
+	\coordinate (e10) at ($(v2)!0.5!(v5)$);
+	\coordinate (e11) at ($(v3)!0.5!(v4)$);
+	\coordinate (f0) at ($(e0)!0.5!(e1)$);
+	\coordinate (f1) at ($(e2)!0.5!(e3)$);
+	\coordinate (f2) at ($(e0)!0.5!(e3)$);
+	\coordinate (f3) at ($(e1)!0.5!(e2)$);
+	\coordinate (f4) at ($(e4)!0.5!(e7)$);
+	\coordinate (f5) at ($(e5)!0.5!(e6)$);
+	\coordinate (c0) at ($(f1)!0.5!(f0)$);
+	
+	% Hexahedron
+	\draw[edge, edash] (v3) -- (v0);
+	\draw[edge, edash] (v2) -- (v3);	
+	\draw[edge, edash] (v3) -- (v4);
+	
+	\draw[thinedge, edash] (e4) -- (e7);
+	\draw[thinedge, edash] (e8) -- (e11);
+	\draw[thinedge, edash] (e0) -- (e1);
+	\draw[thinedge, edash] (e4) -- (e5);
+	\draw[thinedge, edash] (e1) -- (e2);
+	\draw[thinedge, edash] (e11) -- (e10);
+	\draw[thinedge, edash] (f0) -- (f1);
+	\draw[thinedge, edash] (f2) -- (f3);
+	
+	\node[vertex] at (v3) {$v_3$};
+	\node[edgevertex] at (e1) {$e_1$};
+	\node[edgevertex] at (e4) {$e_4$};
+	\node[edgevertex] at (e11) {$e_{11}$};
+	\node[facevertex] at (f0) {$f_0$};
+	\node[facevertex] at (f3) {$f_3$};
+	\node[facevertex] at (f4) {$f_4$};
+	\node[cellvertex] at (c0) {$c_0$};
+	
+	\draw[face] (v0) -- (v1) -- (v6) -- (v7) -- cycle;
+	\draw[face] (v1) -- (v2) -- (v5) -- (v6) -- cycle;
+	\draw[face] (v5) -- (v4) -- (v7) -- (v6) -- cycle;
+	
+	\draw[thinedge] (e0) -- (e3);
+	\draw[thinedge] (e8) -- (e9);
+	\draw[thinedge] (e9) -- (e10);
+	\draw[thinedge] (e5) -- (e6);
+	\draw[thinedge] (e6) -- (e7);
+	\draw[thinedge] (e3) -- (e2);
+	
+	\node[facevertex] at (f1) {$f_1$};
+	\node[facevertex] at (f2) {$f_2$};
+	\node[facevertex] at (f5) {$f_5$};
+	
+	\draw[edge] (v0) -- (v1);
+	\draw[edge] (v1) -- (v2);
+	\draw[edge] (v0) -- (v7);
+	\draw[edge] (v1) -- (v6);
+	\draw[edge] (v2) -- (v5);
+	\draw[edge] (v4) -- (v7);
+	\draw[edge] (v7) -- (v6);
+	\draw[edge] (v6) -- (v5);
+	\draw[edge] (v5) -- (v4);
+	
+	\node[vertex] at (v0) {$v_0$};
+	\node[vertex] at (v1) {$v_1$};
+	\node[vertex] at (v2) {$v_2$};
+
+	\node[vertex] at (v4) {$v_4$};
+	\node[vertex] at (v5) {$v_5$};
+	\node[vertex] at (v6) {$v_6$};
+	\node[vertex] at (v7) {$v_7$};
+	
+	\node[edgevertex] at (e0) {$e_0$};
+	\node[edgevertex] at (e2) {$e_2$};
+	\node[edgevertex] at (e3) {$e_3$};
+	\node[edgevertex] at (e5) {$e_5$};
+	\node[edgevertex] at (e6) {$e_6$};
+	\node[edgevertex] at (e7) {$e_7$};
+	\node[edgevertex] at (e8) {$e_8$};
+	\node[edgevertex] at (e9) {$e_9$};
+	\node[edgevertex] at (e10) {$e_{10}$};
+	
+\end{scope}
+    
+\end{tikzpicture}
+%%%%%%%%%%%%%%
+
+\end{document}
