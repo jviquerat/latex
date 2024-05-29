@@ -1,0 +1,106 @@
+\documentclass[tikz, border = 1 cm]{standalone}
+
+%%%%%%%%%%%%%%
+\usepackage{tikz}
+\usetikzlibrary{matrix}
+\usetikzlibrary{calc}
+%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%
+\definecolor{blue1}		{RGB}{0,177,234}
+\definecolor{bluegray3}	{RGB}{127,191,211}
+\definecolor{gray2}		{RGB}{129,135,141}	
+\definecolor{gray3}		{RGB}{165,169,174}
+\definecolor{orange3}	{RGB}{255,190,150}	
+\definecolor{teal1}		{RGB}{0,128,128}
+\definecolor{teal2}		{RGB}{80,158,158}
+\definecolor{teal3}		{RGB}{130,198,198}
+%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%
+\tikzset{
+	mStyle/.style={row sep=-2*\pgflinewidth, column sep=-2*\pgflinewidth},
+	mWH/.style n args={2}{minimum width=#1cm, minimum height=#2cm},
+	mNode/.style n args={1}{draw=blue1, thick, fill=#1, mWH},
+	mRounded/.style n args={5}{append after command={\pgfextra
+        		\draw[mNode={#5}, sharp corners]% 
+    		(\tikzlastnode.west)% 
+    		[rounded corners=#1pt] |- (\tikzlastnode.north)% 
+    		[rounded corners=#2pt] -| (\tikzlastnode.east)% 
+    		[rounded corners=#3pt] |- (\tikzlastnode.south)% 
+    		[rounded corners=#4pt] -| (\tikzlastnode.west);%
+   		\endpgfextra}},
+	mTL/.style n args={1}{mRounded={3}{0}{0}{0}{#1}},
+	mTR/.style n args={1}{mRounded={0}{3}{0}{0}{#1}},
+	mBL/.style n args={1}{mRounded={0}{0}{0}{3}{#1}},
+	mBR/.style n args={1}{mRounded={0}{0}{3}{0}{#1}},
+	mL/.style n args={1}{mRounded={3}{0}{0}{3}{#1}},
+	mR/.style n args={1}{mRounded={0}{3}{3}{0}{#1}},
+	mN/.style n args={1}{mRounded={0}{0}{0}{0}{#1}},
+	mB/.style n args={1}{mRounded={0}{0}{3}{3}{#1}},
+	mT/.style n args={1}{mRounded={3}{3}{0}{0}{#1}}
+}
+
+\tikzset{arrow/.style={thick,gray2,-stealth, dash pattern=on 1pt, red}}
+%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%
+\begin{document}
+
+%%%%%%%%%%%%%%
+\begin{tikzpicture}
+
+	% Definitions
+	\def\w{white}
+	\def\b{bluegray3}
+	\def\g{gray3}
+	\def\o{orange3}
+	\def\ppp{teal3}
+	\def\pp{teal2}
+	\def\p{teal1}
+	
+	\matrix[mStyle, nodes={mWH={0.5}{0.5}}] at (0,0) {
+		\node[mTL={\w}] (m1tl) 	{}; & \node[mN={\w}] 	{}; & \node[mN={\w}] 			{}; & \node[mTR={\w}] 		{}; \\
+		\node[mN={\o}] (m1cl)	{}; & \node[mN={\w}]	{}; & \node[mN={\o}] 	(m1cm) 	{}; & \node[mN={\w}]   (m1cr)	{}; \\
+		\node[mBL={\w}] (m1bl)	{}; & \node[mN={\w}]	{}; & \node[mN={\w}] 			{}; & \node[mBR={\w}] (m1br) 	{}; \\
+	};
+
+	\draw[thick] ($(m1tl.north west) + (-0.15,-0.05)$) -- ($(m1bl.south west) + (-0.15,0.05)$) node[pos=0.5,anchor=east] {$M$};
+	\draw[thick] ($(m1bl.south west) + (0.05,-0.15)$) -- ($(m1br.south east) + (-0.05,-0.15)$) node[pos=0.5,anchor=north] {$K$};
+	
+	\node at ($(m1cr.east) + (0.55,0)$) {$\times$};
+	
+	\matrix[mStyle, nodes={mWH={0.5}{0.5}}] at (3,0) {
+		\node[mTL={\b}] (m2tl)	{}; & \node[mN={\w}] 			{}; & \node[mTR={\b}] (m2tr)	{}; \\
+		\node[mN={\w}] 		{}; & \node[mN={\w}] 			{}; & \node[mN={\w}]   		{}; \\
+		\node[mN={\w}]	 (m2ml)	{}; & \node[mN={\g}] (m2cm)	{}; & \node[mN={\g}] (m2cr)  	{}; \\
+		\node[mBL={\w}] (m2bl)	{}; & \node[mN={\w}] 			{}; & \node[mBR={\w}] (m2br) 	{}; \\
+	};
+	\draw[arrow] (m1cl.center) to[out=90,in=90] (m2tl.center);
+	\draw[arrow] (m1cl.center) to[out=90,in=90] (m2tr.center);
+	\draw[arrow] (m1cm.center) to[out=-90,in=-90] (m2cm.center);
+	\draw[arrow] (m1cm.center) to[out=-90,in=-90] (m2cr.center);
+	\draw[thick] ($(m2tl.north west) + (-0.15,-0.05)$) -- ($(m2bl.south west) + (-0.15,0.05)$) node[pos=0.9,anchor=east] {$K$};
+	\draw[thick] ($(m2bl.south west) + (0.05,-0.15)$) -- ($(m2br.south east) + (-0.05,-0.15)$) node[pos=0.5,anchor=north] {$N$};
+	
+	\node at ($.5*(m2tr.east) + .5*(m2br.east) + (0.55,0)$) {$=$};
+	
+	\matrix[mStyle, nodes={mWH={0.5}{0.5}}] at (5.65,0) {
+		\node[mTL={\w}] (m3tl) 	{}; & \node[mN={\w}] 			{}; & \node[mTR={\w}] (m3tr)	{}; \\
+		\node[mN={\ppp}] (m3ml)	{}; & \node[mN={\p}] (m3cm)	{}; & \node[mN={\pp}]   (m3mr)	{}; \\
+		\node[mBL={\w}] (m3bl) 	{}; & \node[mN={\w}] 			{}; & \node[mBR={\w}] (m3br)	{}; \\
+	};
+
+	\draw[arrow] (m2tl.center) to[out=90,in=90] (m3ml.center);
+	\draw[arrow] (m2tr.center) to[out=90,in=90] (m3mr.center);
+	\draw[arrow] (m2cm.center) to[out=-90,in=-90] (m3cm.center);
+	\draw[arrow] (m2cr.center) to[out=-90,in=-90] (m3mr.center);
+	\draw[thick] ($(m3tl.north west) + (-0.15,-0.05)$) -- ($(m3bl.south west) + (-0.15,0.05)$) node[pos=0.85,anchor=east] {$M$};
+	\draw[thick] ($(m3bl.south west) + (0.05,-0.15)$) -- ($(m3br.south east) + (-0.05,-0.15)$) node[pos=0.5,anchor=north] {$N$};
+    
+\end{tikzpicture}
+%%%%%%%%%%%%%%
+
+\end{document}
